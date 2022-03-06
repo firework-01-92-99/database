@@ -214,31 +214,50 @@ INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_
 INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (3,'stardust','stardust123',3,3);
 
 -- -----------------------------------------------------
+-- Table `firework`.`WorkerType`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`worker_type` (
+  `idWorkerType` INT NOT NULL AUTO_INCREMENT,
+  `typeName` VARCHAR(7) NOT NULL COMMENT 'Migrant/Thai',
+  PRIMARY KEY (`idWorkerType`))
+ENGINE = InnoDB;
+
+INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (1,'Migrant');
+INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (2,'Thai');
+
+-- -----------------------------------------------------
 -- Table `firework`.`worker`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `firework`.`worker` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   `idWorker` INT NOT NULL AUTO_INCREMENT,
-  `passportNo` VARCHAR(20) NOT NULL,
+  `IdentificationNumber` VARCHAR(20) NOT NULL COMMENT 'personal Id for Thai People, passportNo. for Migrant Worker',
   `verifyPic` MEDIUMTEXT NOT NULL,
   `firstName` VARCHAR(45) NOT NULL,
   `middleName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NULL,
   `phone` VARCHAR(10) NOT NULL,
   `account_idAccount` INT NOT NULL,
-  PRIMARY KEY (`idWorker`, `account_idAccount`),
+  `WorkerType_idWorkerType` INT NOT NULL,
+  PRIMARY KEY (`idWorker`, `account_idAccount`, `WorkerType_idWorkerType`),
   UNIQUE INDEX `idworker_UNIQUE` (`idWorker` ASC) VISIBLE,
   INDEX `fk_worker_account1_idx` (`account_idAccount` ASC) VISIBLE,
+  INDEX `fk_worker_WorkerType1_idx` (`WorkerType_idWorkerType` ASC) VISIBLE,
   CONSTRAINT `fk_worker_account1`
     FOREIGN KEY (`account_idAccount`)
     REFERENCES `mydb`.`account` (`idAccount`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_worker_WorkerType1`
+    FOREIGN KEY (`WorkerType_idWorkerType`)
+    REFERENCES `mydb`.`WorkerType` (`idWorkerType`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `worker` (`idWorker`,`passportNo`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`) VALUES (1,'MC576508','1234','ซิ่น','เมียท','อู','0912345678',3);
-
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','ซิ่น','เมียท','อู','0912345678',3,1);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','รักชาติ',NULL,'ศาสนา','0999999999',3,2);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
