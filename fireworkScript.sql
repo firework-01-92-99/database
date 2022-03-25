@@ -216,7 +216,7 @@ INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_
 -- -----------------------------------------------------
 -- Table `firework`.`WorkerType`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`worker_type` (
+CREATE TABLE IF NOT EXISTS `firework`.`worker_type` (
   `idWorkerType` INT NOT NULL AUTO_INCREMENT,
   `typeName` VARCHAR(7) NOT NULL COMMENT 'Migrant/Thai',
   PRIMARY KEY (`idWorkerType`))
@@ -246,12 +246,12 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   INDEX `fk_worker_WorkerType1_idx` (`WorkerType_idWorkerType` ASC) VISIBLE,
   CONSTRAINT `fk_worker_account1`
     FOREIGN KEY (`account_idAccount`)
-    REFERENCES `mydb`.`account` (`idAccount`)
+    REFERENCES `firework`.`account` (`idAccount`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_worker_WorkerType1`
     FOREIGN KEY (`WorkerType_idWorkerType`)
-    REFERENCES `mydb`.`WorkerType` (`idWorkerType`)
+    REFERENCES `firework`.`WorkerType` (`idWorkerType`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -8835,19 +8835,16 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(45) NULL,
-  `welfare` VARCHAR(45) NOT NULL,
-  `hiring_type_idHiringtype` INT NOT NULL,
+  `welfare` VARCHAR(500) NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `status_idStatus` INT NOT NULL,
-  PRIMARY KEY (`idPosting`, `hiring_type_idHiringtype`, `employer_idEmployer`, `status_idStatus`),
-  INDEX `fk_posting_hiring_type1_idx` (`hiring_type_idHiringtype` ASC) VISIBLE,
+  `WorkerType_idWorkerType` INT NOT NULL,
+  `hiring_type_idHiringtype` INT NOT NULL,
+  PRIMARY KEY (`idPosting`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`),
   INDEX `fk_posting_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
   INDEX `fk_posting_status1_idx` (`status_idStatus` ASC) VISIBLE,
-  CONSTRAINT `fk_posting_hiring_type1`
-    FOREIGN KEY (`hiring_type_idHiringtype`)
-    REFERENCES `firework`.`hiring_type` (`idHiringtype`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_posting_WorkerType1_idx` (`WorkerType_idWorkerType` ASC) VISIBLE,
+  INDEX `fk_posting_hiring_type1_idx` (`hiring_type_idHiringtype` ASC) VISIBLE,
   CONSTRAINT `fk_posting_employer1`
     FOREIGN KEY (`employer_idEmployer`)
     REFERENCES `firework`.`employer` (`idEmployer`)
@@ -8857,10 +8854,29 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
     FOREIGN KEY (`status_idStatus`)
     REFERENCES `firework`.`status` (`idStatus`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posting_WorkerType1`
+    FOREIGN KEY (`WorkerType_idWorkerType`)
+    REFERENCES `firework`.`worker_type` (`idWorkerType`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posting_hiring_type1`
+    FOREIGN KEY (`hiring_type_idHiringtype`)
+    REFERENCES `firework`.`hiring_type` (`idHiringtype`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`) VALUES (1,'หญิง','1. เช็ดทำความสะอาดสิ่งของ
+2. กวาดพื้นถูพื้น
+3. ทำงานต่าง ๆ ที่ได้รับมอบหมาย','35','45','14500','22000',NULL,'9:00','18:00',NULL,'- พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก
+- พนักงานมีอาหารฟรี 2 มื้อต่อวัน ( บางตำแหน่ง )
+- โบนัสเบี้ยขยัน, ค่าพาหนะเดินทาง, ค่าล่วงเวลา
+- ประกันสังคม, ตรวจสุขภาพประจำปี
+- ส่งเสริมสนับสนุนการฝึกอบรมพนักงาน ทั้งในต่างประเทศและต่างประเทศ
+- โบนัสแนะนำพนักงาน, โบนัสอาวุโส, อื่นๆ
+- ของขวัญวันเกิด
+- ชุดยูนิฟอร์ม ( บางตำแหน่ง )',1,1,1,3);
 -- -----------------------------------------------------
 -- Table `firework`.`position`
 -- -----------------------------------------------------
