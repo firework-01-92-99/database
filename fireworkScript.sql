@@ -189,7 +189,7 @@ ENGINE = InnoDB;
 INSERT INTO `approve` (`idApprove`,`admin_idAdmin`,`status_idStatus`) VALUES (1,1,4);
 INSERT INTO `approve` (`idApprove`,`admin_idAdmin`,`status_idStatus`) VALUES (2,1,4);
 INSERT INTO `approve` (`idApprove`,`admin_idAdmin`,`status_idStatus`) VALUES (3,1,4);
-
+INSERT INTO `approve` (`idApprove`,`admin_idAdmin`,`status_idStatus`) VALUES (4,1,4);
 
 -- -----------------------------------------------------
 -- Table `firework`.`account`
@@ -220,6 +220,7 @@ ENGINE = InnoDB;
 INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (1,'mandolin','mandolin123',1,1);
 INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (2,'lambchop','lambchop123',2,2);
 INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (3,'stardust','stardust123',3,3);
+INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (4,'thailand','poonpoon',3,4);
 
 -- -----------------------------------------------------
 -- Table `firework`.`WorkerType`
@@ -265,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
 ENGINE = InnoDB;
 
 INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','ซิ่น','เมียท','อู','0912345678',3,1);
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','รักชาติ',NULL,'ศาสนา','0999999999',3,2);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','รักชาติ',NULL,'ศาสนา','0999999999',4,2);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
@@ -8905,7 +8906,25 @@ INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`mi
 - ส่งเสริมสนับสนุนการฝึกอบรมพนักงาน ทั้งในต่างประเทศและต่างประเทศ
 - โบนัสแนะนำพนักงาน, โบนัสอาวุโส, อื่นๆ
 - ของขวัญวันเกิด
-- ชุดยูนิฟอร์ม ( บางตำแหน่ง )',1,1,1,3,1);
+- ชุดยูนิฟอร์ม ( บางตำแหน่ง )',1,1,1,1,1);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (2,'ชาย','1. ประกอบอาหาร
+2. จัดเตรียมวัตถุดิบในการประกอบอาหาร ตลอดจนภาชนะ เครื่องใช้ในครัว
+3. ควบคุมดูแลรักษาความสะอาดบริเวณที่ประกอบอาหาร
+4. จัดสต๊อกและวัตถุดิบในการประกอบอาหาร
+5. งานอื่นๆตามที่ได้รับมอบหมาย',20,35,12000,15000,NULL,'9:00','18:00',NULL,'- ประกันสังคม
+- ค่าใช้จ่ายในการเดินทาง
+- ค่ายานพาหนะ
+- ตามข้อตกลงของบริษัท
+- เงินโบนัสตามผลงาน',1,1,1,3,2);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (3,'ทุกเพศ','1. จัดสถานที่และทำความสะอาดก่อนเปิดร้าน
+2. ต้อนรับลูกค้าด้วยรอยยิ้มอยู่เสมอ
+3. รับออเดอร์และเสิร์ฟอาหาร เครื่องดื่ม
+4. ดูแลเซอร์วิส ให้ความช่อยเหลือลูกค้า
+5. เก็บและทำความสะอาดร้านหลังปิดให้บริการ',25,40,300,350,NULL,'9:00','18:00',NULL,'- บุคลิกร่าเริงแจ่มใส
+- กล้าแสดงออก
+- ช่างสังเกตผู้คน
+- มีความกระตื่อรือร้น
+- พร้อมเรียนอยู่สิ่งใหม่ ๆ เพื่อพัฒนาตนเองอยู่เสมอ',1,1,2,2,3);
 -- -----------------------------------------------------
 -- Table `firework`.`position`
 -- -----------------------------------------------------
@@ -9094,6 +9113,16 @@ INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (3,4,1);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (4,5,1);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (5,6,1);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (6,2,2);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (7,3,2);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (8,4,2);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (9,5,2);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (10,6,2);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (11,2,3);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (12,3,3);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (13,4,3);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (14,5,3);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (15,6,3);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
