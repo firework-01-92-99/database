@@ -111,15 +111,16 @@ INSERT INTO `province` (`idProvince`,`provinceName`) VALUES ('96','นราธ�
 -- Table `firework`.`role`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `firework`.`role` ;
+
 CREATE TABLE IF NOT EXISTS `firework`.`role` (
   `idRole` INT NOT NULL AUTO_INCREMENT,
   `roleName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idRole`))
 ENGINE = InnoDB;
 
-INSERT INTO `role` (`idRole`,`roleName`) VALUES (1,'ผู้ดูแลระบบ');
-INSERT INTO `role` (`idRole`,`roleName`) VALUES (2,'นายจ้าง');
-INSERT INTO `role` (`idRole`,`roleName`) VALUES (3,'แรงงานต่างด้าว');
+INSERT INTO `role` (`idRole`,`roleName`) VALUES (1,'ROLE_ADMIN');
+INSERT INTO `role` (`idRole`,`roleName`) VALUES (2,'ROLE_EMP');
+INSERT INTO `role` (`idRole`,`roleName`) VALUES (3,'ROLE_WORKER');
 
 -- -----------------------------------------------------
 -- Table `firework`.`admin`
@@ -129,13 +130,20 @@ DROP TABLE IF EXISTS `firework`.`admin` ;
 CREATE TABLE IF NOT EXISTS `firework`.`admin` (
   `idAdmin` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(60) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idAdmin`))
+  `role_idRole` INT NOT NULL,
+  PRIMARY KEY (`idAdmin`, `role_idRole`),
+  INDEX `fk_admin_role1_idx` (`role_idRole` ASC) VISIBLE,
+  CONSTRAINT `fk_admin_role1`
+    FOREIGN KEY (`role_idRole`)
+    REFERENCES `mydb`.`role` (`idRole`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `admin` (`idAdmin`,`username`,`password`,`firstName`,`lastName`) VALUES (1,'mandolin','mandolin123','mandolin','carpet');
+INSERT INTO `admin` (`idAdmin`,`username`,`password`,`firstName`,`lastName`,`role_idRole`) VALUES (1,'mandolin','mandolin123','mandolin','carpet',1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`status`
@@ -8751,19 +8759,23 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   `phone` VARCHAR(10) NOT NULL COMMENT 'เบอร์มือถือ',
   `email` VARCHAR(45) NULL,
   `lineId` VARCHAR(45) NULL,
-  `province_idProvince` VARCHAR(2) NOT NULL,
-  `businessType_idBusinessType` INT NOT NULL,
   `account_idAccount` INT NOT NULL,
-  PRIMARY KEY (`idEmployer`, `province_idProvince`, `businessType_idBusinessType`, `account_idAccount`),
+  `businessType_idBusinessType` INT NOT NULL,
+  `province_idProvince` VARCHAR(2) NOT NULL,
+  `district_idDistrict` VARCHAR(4) NOT NULL,
+  `sub_district_idSubdistrict` VARCHAR(6) NOT NULL,
+  PRIMARY KEY (`idEmployer`, `account_idAccount`, `businessType_idBusinessType`, `province_idProvince`, `district_idDistrict`, `sub_district_idSubdistrict`),
   INDEX `fk_employer_province1_idx` (`province_idProvince` ASC) VISIBLE,
-  INDEX `fk_employer_businessType_idx` (`businessType_idBusinessType` ASC) VISIBLE,
+  INDEX `fk_employer_businessType1_idx` (`businessType_idBusinessType` ASC) VISIBLE,
   INDEX `fk_employer_account1_idx` (`account_idAccount` ASC) VISIBLE,
+  INDEX `fk_employer_district1_idx` (`district_idDistrict` ASC) VISIBLE,
+  INDEX `fk_employer_sub_district1_idx` (`sub_district_idSubdistrict` ASC) VISIBLE,
   CONSTRAINT `fk_employer_province1`
     FOREIGN KEY (`province_idProvince`)
     REFERENCES `firework`.`province` (`idProvince`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_employer_businessType`
+  CONSTRAINT `fk_employer_businessType1`
     FOREIGN KEY (`businessType_idBusinessType`)
     REFERENCES `firework`.`businessType` (`idBusinessType`)
     ON DELETE NO ACTION
@@ -8772,10 +8784,20 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     FOREIGN KEY (`account_idAccount`)
     REFERENCES `firework`.`account` (`idAccount`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_employer_district1`
+    FOREIGN KEY (`district_idDistrict`)
+    REFERENCES `firework`.`district` (`idDistrict`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_employer_sub_district1`
+    FOREIGN KEY (`sub_district_idSubdistrict`)
+    REFERENCES `firework`.`sub_district` (`idSubdistrict`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`locationPic`,`address`,`tel`,`phone`,`email`,`lineId`,`province_idProvince`,`businessType_idBusinessType`,`account_idAccount`) VALUES (1,'lightning co., ltd.','Flash','Fastest','55555','Soi 1 55','021212121','0912345678','lighting@light.com','light12345','10',24,2);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`locationPic`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`) VALUES (1,'lightning co., ltd.','Flash','Fastest','55555','Soi 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location`
@@ -8827,10 +8849,10 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `idPosting` INT NOT NULL AUTO_INCREMENT,
   `sex` VARCHAR(6) NOT NULL,
   `workDescription` VARCHAR(400) NOT NULL,
-  `minAge` VARCHAR(45) NOT NULL,
-  `maxAge` VARCHAR(45) NOT NULL,
-  `minSalary` VARCHAR(45) NOT NULL,
-  `maxSalary` VARCHAR(45) NOT NULL,
+  `minAge` INT(3) NOT NULL,
+  `maxAge` INT(3) NOT NULL,
+  `minSalary` INT(7) NOT NULL,
+  `maxSalary` INT(7) NOT NULL,
   `overtimePayment` VARCHAR(45) NULL,
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
@@ -8840,11 +8862,13 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `status_idStatus` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
   `hiring_type_idHiringtype` INT NOT NULL,
-  PRIMARY KEY (`idPosting`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`),
+  `position_idposition` INT NOT NULL,
+  PRIMARY KEY (`idPosting`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`, `position_idposition`),
   INDEX `fk_posting_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
   INDEX `fk_posting_status1_idx` (`status_idStatus` ASC) VISIBLE,
   INDEX `fk_posting_WorkerType1_idx` (`WorkerType_idWorkerType` ASC) VISIBLE,
   INDEX `fk_posting_hiring_type1_idx` (`hiring_type_idHiringtype` ASC) VISIBLE,
+  INDEX `fk_posting_position1_idx` (`position_idposition` ASC) VISIBLE,
   CONSTRAINT `fk_posting_employer1`
     FOREIGN KEY (`employer_idEmployer`)
     REFERENCES `firework`.`employer` (`idEmployer`)
@@ -8864,19 +8888,24 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
     FOREIGN KEY (`hiring_type_idHiringtype`)
     REFERENCES `firework`.`hiring_type` (`idHiringtype`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_posting_position1`
+    FOREIGN KEY (`position_idposition`)
+    REFERENCES `firework`.`position` (`idposition`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`) VALUES (1,'หญิง','1. เช็ดทำความสะอาดสิ่งของ
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (1,'หญิง','1. เช็ดทำความสะอาดสิ่งของ
 2. กวาดพื้นถูพื้น
-3. ทำงานต่าง ๆ ที่ได้รับมอบหมาย','35','45','14500','22000',NULL,'9:00','18:00',NULL,'- พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก
+3. ทำงานต่าง ๆ ที่ได้รับมอบหมาย',35,45,14500,22000,NULL,'9:00','18:00',NULL,'- พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก
 - พนักงานมีอาหารฟรี 2 มื้อต่อวัน ( บางตำแหน่ง )
 - โบนัสเบี้ยขยัน, ค่าพาหนะเดินทาง, ค่าล่วงเวลา
 - ประกันสังคม, ตรวจสุขภาพประจำปี
 - ส่งเสริมสนับสนุนการฝึกอบรมพนักงาน ทั้งในต่างประเทศและต่างประเทศ
 - โบนัสแนะนำพนักงาน, โบนัสอาวุโส, อื่นๆ
 - ของขวัญวันเกิด
-- ชุดยูนิฟอร์ม ( บางตำแหน่ง )',1,1,1,3);
+- ชุดยูนิฟอร์ม ( บางตำแหน่ง )',1,1,1,3,1);
 -- -----------------------------------------------------
 -- Table `firework`.`position`
 -- -----------------------------------------------------
@@ -8885,23 +8914,19 @@ DROP TABLE IF EXISTS `firework`.`position` ;
 CREATE TABLE IF NOT EXISTS `firework`.`position` (
   `idposition` INT NOT NULL AUTO_INCREMENT,
   `positionName` VARCHAR(45) NOT NULL,
-  `posting_idPosting` INT NOT NULL,
   `employer_idEmployer` INT NOT NULL,
-  PRIMARY KEY (`idposition`, `posting_idPosting`, `employer_idEmployer`),
-  INDEX `fk_position_posting1_idx` (`posting_idPosting` ASC) VISIBLE,
+  PRIMARY KEY (`idposition`, `employer_idEmployer`),
   INDEX `fk_position_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
-  CONSTRAINT `fk_position_posting1`
-    FOREIGN KEY (`posting_idPosting`)
-    REFERENCES `firework`.`posting` (`idPosting`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_position_employer1`
     FOREIGN KEY (`employer_idEmployer`)
-    REFERENCES `firework`.`employer` (`idEmployer`)
+    REFERENCES `mydb`.`employer` (`idEmployer`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (1,'แม่บ้าน',1);
+INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (2,'พ่อครัว',1);
+INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (3,'พนักงานเสิร์ฟ',1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`day`
@@ -9064,6 +9089,11 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting_has_day` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (1,2,1);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (2,3,1);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (3,4,1);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (4,5,1);
+INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (5,6,1);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
