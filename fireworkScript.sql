@@ -243,6 +243,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   `idWorker` INT NOT NULL AUTO_INCREMENT,
   `IdentificationNumber` VARCHAR(20) NOT NULL COMMENT 'personal Id for Thai People, passportNo. for Migrant Worker',
   `verifyPic` MEDIUMTEXT NOT NULL,
+  `sex` VARCHAR(6) NOT NULL,
   `firstName` VARCHAR(45) NOT NULL,
   `middleName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NULL,
@@ -265,8 +266,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','ซิ่น','เมียท','อู','0912345678',3,1);
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','รักชาติ',NULL,'ศาสนา','0999999999',4,2);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','หญิง','ซิ่น','เมียท','อู','0912345678',3,1);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','ชาย','รักชาติ',NULL,'ศาสนา','0999999999',4,2);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
