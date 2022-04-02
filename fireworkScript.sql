@@ -8755,7 +8755,6 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   `establishmentName` VARCHAR(45) NOT NULL COMMENT 'ชื่อสถานประกอบการ',
   `entrepreneurfName` VARCHAR(45) NOT NULL COMMENT 'ชื่อผู้ประกอบการ',
   `entrepreneurlName` VARCHAR(45) NOT NULL,
-  `locationPic` MEDIUMTEXT NOT NULL,
   `address` VARCHAR(100) NOT NULL,
   `tel` VARCHAR(9) NULL COMMENT 'เบอร์ บ.',
   `phone` VARCHAR(10) NOT NULL COMMENT 'เบอร์มือถือ',
@@ -8799,7 +8798,27 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`locationPic`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`) VALUES (1,'lightning co., ltd.','Flash','Fastest','55555','Soi 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`) VALUES (1,'lightning co., ltd.','Flash','Fastest','Soi 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101);
+
+-- -----------------------------------------------------
+-- Table `firework`.`location_pic`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`location_pic` ;
+
+CREATE TABLE IF NOT EXISTS `firework`.`location_pic` (
+  `idPic` INT NOT NULL AUTO_INCREMENT,
+  `locPic` MEDIUMTEXT NOT NULL,
+  `employer_idEmployer` INT NOT NULL,
+  PRIMARY KEY (`idPic`, `employer_idEmployer`),
+  INDEX `fk_location_pic_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
+  CONSTRAINT `fk_location_pic_employer1`
+    FOREIGN KEY (`employer_idEmployer`)
+    REFERENCES `firework`.`employer` (`idEmployer`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+INSERT INTO `location_pic` (`idPic`,`locPic`,`employer_idEmployer`) VALUES (1,'aaaaiiiiyaaaa','1');
 
 -- -----------------------------------------------------
 -- Table `firework`.`location`
