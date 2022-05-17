@@ -8798,7 +8798,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`) VALUES (1,'lightning co., ltd.','Flash','Fastest','Soi 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location_pic`
@@ -8874,7 +8874,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `maxAge` INT(3) NOT NULL,
   `minSalary` INT(7) NOT NULL,
   `maxSalary` INT(7) NOT NULL,
-  `overtimePayment` VARCHAR(45) NULL,
+  `overtimePayment` VARCHAR(45) NOT NULL COMMENT 'value = y, n',
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(45) NULL,
@@ -8892,34 +8892,34 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   INDEX `fk_posting_position1_idx` (`position_idposition` ASC) VISIBLE,
   CONSTRAINT `fk_posting_employer1`
     FOREIGN KEY (`employer_idEmployer`)
-    REFERENCES `firework`.`employer` (`idEmployer`)
+    REFERENCES `mydb`.`employer` (`idEmployer`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_status1`
     FOREIGN KEY (`status_idStatus`)
-    REFERENCES `firework`.`status` (`idStatus`)
+    REFERENCES `mydb`.`status` (`idStatus`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_WorkerType1`
     FOREIGN KEY (`WorkerType_idWorkerType`)
-    REFERENCES `firework`.`worker_type` (`idWorkerType`)
+    REFERENCES `mydb`.`worker_type` (`idWorkerType`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_hiring_type1`
     FOREIGN KEY (`hiring_type_idHiringtype`)
-    REFERENCES `firework`.`hiring_type` (`idHiringtype`)
+    REFERENCES `mydb`.`hiring_type` (`idHiringtype`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_position1`
     FOREIGN KEY (`position_idposition`)
-    REFERENCES `firework`.`position` (`idposition`)
+    REFERENCES `mydb`.`position` (`idposition`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (1,'หญิง','1. เช็ดทำความสะอาดสิ่งของ
 2. กวาดพื้นถูพื้น
-3. ทำงานต่าง ๆ ที่ได้รับมอบหมาย',35,45,14500,22000,NULL,'9:00','18:00',NULL,'- พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก
+3. ทำงานต่าง ๆ ที่ได้รับมอบหมาย',35,45,14500,22000,'y','9:00','18:00',NULL,'- พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก
 - พนักงานมีอาหารฟรี 2 มื้อต่อวัน ( บางตำแหน่ง )
 - โบนัสเบี้ยขยัน, ค่าพาหนะเดินทาง, ค่าล่วงเวลา
 - ประกันสังคม, ตรวจสุขภาพประจำปี
@@ -8931,7 +8931,7 @@ INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`mi
 2. จัดเตรียมวัตถุดิบในการประกอบอาหาร ตลอดจนภาชนะ เครื่องใช้ในครัว
 3. ควบคุมดูแลรักษาความสะอาดบริเวณที่ประกอบอาหาร
 4. จัดสต๊อกและวัตถุดิบในการประกอบอาหาร
-5. งานอื่นๆตามที่ได้รับมอบหมาย',20,35,12000,15000,NULL,'9:00','18:00',NULL,'- ประกันสังคม
+5. งานอื่นๆตามที่ได้รับมอบหมาย',20,35,12000,15000,'n','9:00','18:00',NULL,'- ประกันสังคม
 - ค่าใช้จ่ายในการเดินทาง
 - ค่ายานพาหนะ
 - ตามข้อตกลงของบริษัท
@@ -8940,7 +8940,7 @@ INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`mi
 2. ต้อนรับลูกค้าด้วยรอยยิ้มอยู่เสมอ
 3. รับออเดอร์และเสิร์ฟอาหาร เครื่องดื่ม
 4. ดูแลเซอร์วิส ให้ความช่อยเหลือลูกค้า
-5. เก็บและทำความสะอาดร้านหลังปิดให้บริการ',25,40,300,350,NULL,'9:00','18:00',NULL,'- บุคลิกร่าเริงแจ่มใส
+5. เก็บและทำความสะอาดร้านหลังปิดให้บริการ',25,40,300,350,'n','9:00','18:00',NULL,'- บุคลิกร่าเริงแจ่มใส
 - กล้าแสดงออก
 - ช่างสังเกตผู้คน
 - มีความกระตื่อรือร้น
