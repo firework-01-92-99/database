@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`admin` (
   INDEX `fk_admin_role1_idx` (`role_idRole` ASC) VISIBLE,
   CONSTRAINT `fk_admin_role1`
     FOREIGN KEY (`role_idRole`)
-    REFERENCES `mydb`.`role` (`idRole`)
+    REFERENCES `firework`.`role` (`idRole`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -266,8 +266,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','หญิง','ซิ่น','เมียท','อู','0912345678',3,1);
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','ชาย','รักชาติ',NULL,'ศาสนา','0999999999',4,2);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','F','ซิ่น','เมียท','อู','0912345678',3,1);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','M','รักชาติ',NULL,'ศาสนา','0999999999',4,2);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
@@ -275,7 +275,7 @@ DROP TABLE IF EXISTS `firework`.`district` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`district` (
   `idDistrict` VARCHAR(4) NOT NULL,
-  `districtName` VARCHAR(45) NOT NULL,
+  `districtName` VARCHAR(200) NOT NULL,
   `province_idProvince` VARCHAR(2) NOT NULL,
   PRIMARY KEY (`idDistrict`, `province_idProvince`),
   INDEX `fk_district_province1_idx` (`province_idProvince` ASC) VISIBLE,
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`district` (
 ENGINE = InnoDB;
 
 /*
--- Query: SELECT * FROM mydb.district
+-- Query: SELECT * FROM firework.district
 LIMIT 0, 1000
 
 -- Date: 2022-02-26 20:33
@@ -1228,7 +1228,7 @@ DROP TABLE IF EXISTS `firework`.`sub_district` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`sub_district` (
   `idSubdistrict` VARCHAR(6) NOT NULL,
-  `subDistrict` VARCHAR(45) NOT NULL,
+  `subDistrict` VARCHAR(200) NOT NULL,
   `postcode` VARCHAR(5) NOT NULL,
   `district_idDistrict` VARCHAR(4) NOT NULL,
   PRIMARY KEY (`idSubdistrict`),
@@ -1241,7 +1241,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`sub_district` (
 ENGINE = InnoDB;
 
 /*
--- Query: SELECT * FROM mydb.sub_district
+-- Query: SELECT * FROM firework.sub_district
 LIMIT 0, 50000
 
 -- Date: 2022-02-26 21:23
@@ -8690,59 +8690,59 @@ DROP TABLE IF EXISTS `firework`.`businessType` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`businessType` (
   `idBusinessType` INT NOT NULL AUTO_INCREMENT,
-  `nameType` VARCHAR(100) NOT NULL COMMENT 'ประเภทการธุรกิจของบริษัท',
+  `nameType` VARCHAR(300) NOT NULL COMMENT 'ประเภทการธุรกิจของบริษัท',
   PRIMARY KEY (`idBusinessType`),
   UNIQUE INDEX `nameType_UNIQUE` (`nameType` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (1,'การก่อสร้างอาคารที่พักอาศัย');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (2,'การก่อสร้างอาคารที่ไม่ใช่ที่พักอาศัย');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (4,'การขายส่ง');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (5,'การดำเนินงานของสถานที่ออกกำลังกาย');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (6,'การผลิตเครื่องประดับจากอัญมณีและโลหะมีค่า');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (7,'การผลิตและผู้จัดจำหน่าย');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (8,'การพิมพ์-สิ่งพิมพ์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (9,'การวิจัยและพัฒนา');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (10,'การศึกษา');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (3,'การเกษตร');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (11,'กิจกรรมการบริหารจัดการด้านการขนส่งและสถานที่เก็บสินค้า');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (13,'กิจกรรมของบริษัทโฆษณา');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (14,'กิจกรรมทางกฎหมาย');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (12,'กิจกรรมเกี่ยวกับบัญชีการทำบัญชีและการตรวจสอบบัญชี การให้คำปรึกษาด้านภาษี');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (15,'กิจกรรมโรงพยาบาล');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (16,'กิจกรรมให้คำปรึกษาด้านการสื่อสารประชาสัมพันธ์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (17,'ขนส่ง');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (18,'คอมพิวเตอร์-ไอที');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (19,'ค้าปลีก');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (21,'จัดนำเที่ยว');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (23,'ที่ปรึกษา');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (22,'ที่ปรึกษาจัดหางาน');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (24,'ธนาคารพาณิชย์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (25,'ธุรกิจอื่นๆ');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (26,'บริการ');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (27,'บริหารศูนย์การค้า');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (28,'บันเทิง');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (29,'ประกันภัย-ประกันชีวิต-ประกันรถยนต์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (30,'พลังงาน');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (31,'พาณิชย์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (32,'ยา, เครื่องสำอาง, อุปกรณ์ทางการแพทย์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (33,'ราชการ/รัฐวิสาหกิจ/มูลนิธิ');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (36,'สื่อสาร');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (35,'ส่งออก-นำเข้า');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (37,'อสังหาริมทรัพย์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (38,'ออกแบบ-ตกแต่ง');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (39,'ออนไลน์มีเดีย');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (40,'อาหาร-เครื่องดื่ม');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (41,'อุตสาหกรรมกระดาษ/เครืองเขียน');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (43,'อุตสาหกรรมบรรจุภัณฑ์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (45,'อุตสาหกรรมยานพาหนะ');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (47,'อุตสาหกรรมสิ่งทอ');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (48,'อุตสาหกรรมอิเลคโทรนิค');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (42,'อุตสาหกรรมเคมี-พลาสติก');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (46,'อุตสาหกรรมโลหะ');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (44,'อุตสาหกรรมไฟฟ้า');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (20,'เงินทุนหลักทรัพย์');
-INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (34,'โรงแรม/รีสอร์ท/สปา/สนามกอล์ฟ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (1,'การก่อสร้างอาคารที่พักอาศัย');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (2,'การก่อสร้างอาคารที่ไม่ใช่ที่พักอาศัย');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (4,'การขายส่ง');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (5,'การดำเนินงานของสถานที่ออกกำลังกาย');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (6,'การผลิตเครื่องประดับจากอัญมณีและโลหะมีค่า');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (7,'การผลิตและผู้จัดจำหน่าย');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (8,'การพิมพ์-สิ่งพิมพ์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (9,'การวิจัยและพัฒนา');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (10,'การศึกษา');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (3,'การเกษตร');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (11,'กิจกรรมการบริหารจัดการด้านการขนส่งและสถานที่เก็บสินค้า');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (13,'กิจกรรมของบริษัทโฆษณา');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (14,'กิจกรรมทางกฎหมาย');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (12,'กิจกรรมเกี่ยวกับบัญชีการทำบัญชีและการตรวจสอบบัญชี การให้คำปรึกษาด้านภาษี');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (15,'กิจกรรมโรงพยาบาล');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (16,'กิจกรรมให้คำปรึกษาด้านการสื่อสารประชาสัมพันธ์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (17,'ขนส่ง');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (18,'คอมพิวเตอร์-ไอที');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (19,'ค้าปลีก');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (21,'จัดนำเที่ยว');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (23,'ที่ปรึกษา');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (22,'ที่ปรึกษาจัดหางาน');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (24,'ธนาคารพาณิชย์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (25,'ธุรกิจอื่นๆ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (26,'บริการ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (27,'บริหารศูนย์การค้า');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (28,'บันเทิง');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (29,'ประกันภัย-ประกันชีวิต-ประกันรถยนต์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (30,'พลังงาน');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (31,'พาณิชย์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (32,'ยา, เครื่องสำอาง, อุปกรณ์ทางการแพทย์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (33,'ราชการ/รัฐวิสาหกิจ/มูลนิธิ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (36,'สื่อสาร');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (35,'ส่งออก-นำเข้า');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (37,'อสังหาริมทรัพย์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (38,'ออกแบบ-ตกแต่ง');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (39,'ออนไลน์มีเดีย');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (40,'อาหาร-เครื่องดื่ม');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (41,'อุตสาหกรรมกระดาษ/เครืองเขียน');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (43,'อุตสาหกรรมบรรจุภัณฑ์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (45,'อุตสาหกรรมยานพาหนะ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (47,'อุตสาหกรรมสิ่งทอ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (48,'อุตสาหกรรมอิเลคโทรนิค');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (42,'อุตสาหกรรมเคมี-พลาสติก');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (46,'อุตสาหกรรมโลหะ');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (44,'อุตสาหกรรมไฟฟ้า');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (20,'เงินทุนหลักทรัพย์');
+INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (34,'โรงแรม/รีสอร์ท/สปา/สนามกอล์ฟ');
 
 
 -- -----------------------------------------------------
@@ -8847,12 +8847,12 @@ DROP TABLE IF EXISTS `firework`.`hiring_type` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`hiring_type` (
   `idHiringtype` INT NOT NULL,
-  `nameType` VARCHAR(20) NOT NULL,
+  `nameType` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idHiringtype`))
 ENGINE = InnoDB;
 
 /*
--- Query: SELECT * FROM mydb.hiring_type
+-- Query: SELECT * FROM firework.hiring_type
 LIMIT 0, 1000
 
 -- Date: 2022-02-26 20:36
@@ -8868,8 +8868,8 @@ DROP TABLE IF EXISTS `firework`.`posting` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `idPosting` INT NOT NULL AUTO_INCREMENT,
-  `sex` VARCHAR(6) NOT NULL,
-  `workDescription` VARCHAR(400) NOT NULL,
+  `sex` VARCHAR(1) NOT NULL,
+  `workDescription` VARCHAR(1000) NOT NULL,
   `minAge` INT(3) NOT NULL,
   `maxAge` INT(3) NOT NULL,
   `minSalary` INT(7) NOT NULL,
@@ -8878,7 +8878,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(45) NULL,
-  `welfare` VARCHAR(500) NOT NULL,
+  `welfare` VARCHAR(1000) NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `status_idStatus` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
@@ -8892,32 +8892,32 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   INDEX `fk_posting_position1_idx` (`position_idposition` ASC) VISIBLE,
   CONSTRAINT `fk_posting_employer1`
     FOREIGN KEY (`employer_idEmployer`)
-    REFERENCES `mydb`.`employer` (`idEmployer`)
+    REFERENCES `firework`.`employer` (`idEmployer`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_status1`
     FOREIGN KEY (`status_idStatus`)
-    REFERENCES `mydb`.`status` (`idStatus`)
+    REFERENCES `firework`.`status` (`idStatus`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_WorkerType1`
     FOREIGN KEY (`WorkerType_idWorkerType`)
-    REFERENCES `mydb`.`worker_type` (`idWorkerType`)
+    REFERENCES `firework`.`worker_type` (`idWorkerType`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_hiring_type1`
     FOREIGN KEY (`hiring_type_idHiringtype`)
-    REFERENCES `mydb`.`hiring_type` (`idHiringtype`)
+    REFERENCES `firework`.`hiring_type` (`idHiringtype`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posting_position1`
     FOREIGN KEY (`position_idposition`)
-    REFERENCES `mydb`.`position` (`idposition`)
+    REFERENCES `firework`.`position` (`idposition`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (1,'หญิง','1. เช็ดทำความสะอาดสิ่งของ
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (1,'F','1. เช็ดทำความสะอาดสิ่งของ
 2. กวาดพื้นถูพื้น
 3. ทำงานต่าง ๆ ที่ได้รับมอบหมาย',35,45,14500,22000,'y','9:00','18:00',NULL,'- พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก
 - พนักงานมีอาหารฟรี 2 มื้อต่อวัน ( บางตำแหน่ง )
@@ -8927,7 +8927,7 @@ INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`mi
 - โบนัสแนะนำพนักงาน, โบนัสอาวุโส, อื่นๆ
 - ของขวัญวันเกิด
 - ชุดยูนิฟอร์ม ( บางตำแหน่ง )',1,1,1,1,1);
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (2,'ชาย','1. ประกอบอาหาร
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (2,'M','1. ประกอบอาหาร
 2. จัดเตรียมวัตถุดิบในการประกอบอาหาร ตลอดจนภาชนะ เครื่องใช้ในครัว
 3. ควบคุมดูแลรักษาความสะอาดบริเวณที่ประกอบอาหาร
 4. จัดสต๊อกและวัตถุดิบในการประกอบอาหาร
@@ -8936,7 +8936,7 @@ INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`mi
 - ค่ายานพาหนะ
 - ตามข้อตกลงของบริษัท
 - เงินโบนัสตามผลงาน',1,1,1,3,2);
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (3,'ทุกเพศ','1. จัดสถานที่และทำความสะอาดก่อนเปิดร้าน
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (3,'A','1. จัดสถานที่และทำความสะอาดก่อนเปิดร้าน
 2. ต้อนรับลูกค้าด้วยรอยยิ้มอยู่เสมอ
 3. รับออเดอร์และเสิร์ฟอาหาร เครื่องดื่ม
 4. ดูแลเซอร์วิส ให้ความช่อยเหลือลูกค้า
@@ -8958,7 +8958,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`position` (
   INDEX `fk_position_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
   CONSTRAINT `fk_position_employer1`
     FOREIGN KEY (`employer_idEmployer`)
-    REFERENCES `mydb`.`employer` (`idEmployer`)
+    REFERENCES `firework`.`employer` (`idEmployer`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -8974,13 +8974,13 @@ DROP TABLE IF EXISTS `firework`.`day` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`day` (
   `idDay` INT NOT NULL AUTO_INCREMENT,
-  `dayName` VARCHAR(10) NOT NULL,
+  `dayName` VARCHAR(45) NOT NULL,
   `abbreviation` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idDay`))
 ENGINE = InnoDB;
 
 /*
--- Query: SELECT * FROM mydb.day
+-- Query: SELECT * FROM firework.day
 LIMIT 0, 1000
 
 -- Date: 2022-02-26 20:38
