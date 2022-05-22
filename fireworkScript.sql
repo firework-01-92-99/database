@@ -8869,7 +8869,7 @@ DROP TABLE IF EXISTS `firework`.`posting` ;
 CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `idPosting` INT NOT NULL AUTO_INCREMENT,
   `sex` VARCHAR(1) NOT NULL CHECK (`sex` IN ('F', 'M', 'A')),
-  `workDescription` VARCHAR(1000) NOT NULL,
+  `workDescription` VARCHAR(2000) NOT NULL,
   `minAge` INT(3) NOT NULL CHECK (`minAge` >= 18),
   `maxAge` INT(3) NOT NULL CHECK (`maxAge` <= 60),
   `minSalary` INT(7) NOT NULL CHECK (`minSalary` >= 0),
@@ -8878,7 +8878,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(45) NULL,
-  `welfare` VARCHAR(1000) NOT NULL,
+  `welfare` VARCHAR(2000) NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `status_idStatus` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
@@ -8928,7 +8928,7 @@ DROP TABLE IF EXISTS `firework`.`position` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`position` (
   `idposition` INT NOT NULL AUTO_INCREMENT,
-  `positionName` VARCHAR(45) NOT NULL,
+  `positionName` VARCHAR(300) NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   PRIMARY KEY (`idposition`, `employer_idEmployer`),
   INDEX `fk_position_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
