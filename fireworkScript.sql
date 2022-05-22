@@ -114,7 +114,7 @@ DROP TABLE IF EXISTS `firework`.`role` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`role` (
   `idRole` INT NOT NULL AUTO_INCREMENT,
-  `roleName` VARCHAR(45) NOT NULL,
+  `roleName` VARCHAR(45) NOT NULL CHECK (`roleName` IN ('ROLE_ADMIN', 'ROLE_EMP', 'ROLE_WORKER')),
   PRIMARY KEY (`idRole`))
 ENGINE = InnoDB;
 
@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -227,7 +227,7 @@ INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `firework`.`worker_type` (
   `idWorkerType` INT NOT NULL AUTO_INCREMENT,
-  `typeName` VARCHAR(7) NOT NULL COMMENT 'Migrant/Thai',
+  `typeName` VARCHAR(7) NOT NULL CHECK (`typeName` IN ('Migrant', 'Thai')) COMMENT 'Migrant/Thai',
   PRIMARY KEY (`idWorkerType`))
 ENGINE = InnoDB;
 
@@ -243,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   `idWorker` INT NOT NULL AUTO_INCREMENT,
   `IdentificationNumber` VARCHAR(20) NOT NULL COMMENT 'personal Id for Thai People, passportNo. for Migrant Worker',
   `verifyPic` MEDIUMTEXT NOT NULL,
-  `sex` VARCHAR(6) NOT NULL,
+  `sex` VARCHAR(6) NOT NULL CHECK (`sex` IN ('F', 'M')),
   `firstName` VARCHAR(45) NOT NULL,
   `middleName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NULL,
@@ -8847,7 +8847,7 @@ DROP TABLE IF EXISTS `firework`.`hiring_type` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`hiring_type` (
   `idHiringtype` INT NOT NULL,
-  `nameType` VARCHAR(100) NOT NULL,
+  `nameType` VARCHAR(100) NOT NULL CHECK (`nameType` IN ('พาร์ทไทม์', 'รายวัน', 'รายเดือน')),
   PRIMARY KEY (`idHiringtype`))
 ENGINE = InnoDB;
 
@@ -8868,13 +8868,13 @@ DROP TABLE IF EXISTS `firework`.`posting` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `idPosting` INT NOT NULL AUTO_INCREMENT,
-  `sex` VARCHAR(1) NOT NULL,
+  `sex` VARCHAR(1) NOT NULL CHECK (`sex` IN ('F', 'M', 'A')),
   `workDescription` VARCHAR(1000) NOT NULL,
-  `minAge` INT(3) NOT NULL,
-  `maxAge` INT(3) NOT NULL,
-  `minSalary` INT(7) NOT NULL,
+  `minAge` INT(3) NOT NULL CHECK (`minAge` >= 18),
+  `maxAge` INT(3) NOT NULL CHECK (`maxAge` <= 60),
+  `minSalary` INT(7) NOT NULL CHECK (`minSalary` >= 0),
   `maxSalary` INT(7) NOT NULL,
-  `overtimePayment` VARCHAR(45) NOT NULL COMMENT 'value = y, n',
+  `overtimePayment` VARCHAR(45) NOT NULL CHECK (`overtimePayment` IN ('y', 'n')) COMMENT 'value = y, n',
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(45) NULL,
@@ -8959,8 +8959,8 @@ DROP TABLE IF EXISTS `firework`.`day` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`day` (
   `idDay` INT NOT NULL AUTO_INCREMENT,
-  `dayName` VARCHAR(45) NOT NULL,
-  `abbreviation` VARCHAR(45) NOT NULL,
+  `dayName` VARCHAR(45) NOT NULL CHECK (`dayName` IN ('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์')),
+  `abbreviation` VARCHAR(45) NOT NULL CHECK (`abbreviation` IN ('อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส')),
   PRIMARY KEY (`idDay`))
 ENGINE = InnoDB;
 
