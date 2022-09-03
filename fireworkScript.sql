@@ -235,6 +235,23 @@ INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (1,'Migrant');
 INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (2,'Thai');
 
 -- -----------------------------------------------------
+-- Table `firework`.`nationality`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`nationality` ;
+
+CREATE TABLE IF NOT EXISTS `firework`.`nationality` (
+  `idnationality` INT NOT NULL AUTO_INCREMENT,
+  `nationality_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idnationality`),
+  UNIQUE INDEX `nationality_name_UNIQUE` (`nationality_name` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (1,'Thai');
+INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (2,'Lao');
+INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (3,'Myanmar');
+INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (4,'Cambodia');
+
+-- -----------------------------------------------------
 -- Table `firework`.`worker`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `firework`.`worker` ;
@@ -250,6 +267,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   `phone` VARCHAR(10) NOT NULL,
   `account_idAccount` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
+  `nationality_idnationality` INT NOT NULL,
   PRIMARY KEY (`idWorker`, `account_idAccount`, `WorkerType_idWorkerType`),
   UNIQUE INDEX `idworker_UNIQUE` (`idWorker` ASC) VISIBLE,
   INDEX `fk_worker_account1_idx` (`account_idAccount` ASC) VISIBLE,
@@ -263,11 +281,16 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     FOREIGN KEY (`WorkerType_idWorkerType`)
     REFERENCES `firework`.`WorkerType` (`idWorkerType`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+  CONSTRAINT `fk_worker_nationality1`
+    FOREIGN KEY (`nationality_idnationality`)
+    REFERENCES `firework`.`nationality` (`idnationality`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (1,'MC576508','1234','F','ซิ่น','เมียท','อู','0912345678',3,1);
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`) VALUES (2,'1100211111111','2345','M','รักชาติ',NULL,'ศาสนา','0999999999',4,2);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (1,'MC576508','1234','F','ซิ่น','เมียท','อู','0912345678',3,1,3);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (2,'1100211111111','2345','M','รักชาติ',NULL,'ศาสนา','0999999999',4,2,1);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
@@ -8771,6 +8794,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   INDEX `fk_employer_account1_idx` (`account_idAccount` ASC) VISIBLE,
   INDEX `fk_employer_district1_idx` (`district_idDistrict` ASC) VISIBLE,
   INDEX `fk_employer_sub_district1_idx` (`sub_district_idSubdistrict` ASC) VISIBLE,
+  INDEX `fk_employer_nationality1_idx` (`nationality_idnationality` ASC) VISIBLE,
   CONSTRAINT `fk_employer_province1`
     FOREIGN KEY (`province_idProvince`)
     REFERENCES `firework`.`province` (`idProvince`)
@@ -8795,10 +8819,15 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     FOREIGN KEY (`sub_district_idSubdistrict`)
     REFERENCES `firework`.`sub_district` (`idSubdistrict`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+  CONSTRAINT `fk_employer_nationality1`
+    FOREIGN KEY (`nationality_idnationality`)
+    REFERENCES `firework`.`nationality` (`idnationality`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','2',24,10,1001,100101,1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location_pic`
@@ -8819,6 +8848,47 @@ CREATE TABLE IF NOT EXISTS `firework`.`location_pic` (
 ENGINE = InnoDB;
 
 INSERT INTO `location_pic` (`idPic`,`locPic`,`employer_idEmployer`) VALUES (1,'aaaaiiiiyaaaa','1');
+
+-- -----------------------------------------------------
+-- Table `firework`.`act_to_registrar`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`act_to_registrar` ;
+
+CREATE TABLE IF NOT EXISTS `firework`.`act_to_registrar` (
+  `idaction` INT NOT NULL AUTO_INCREMENT,
+  `act_name` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(2000) NOT NULL,
+  PRIMARY KEY (`idaction`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `firework`.`admin_has_act`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`admin_has_act` ;
+
+CREATE TABLE IF NOT EXISTS `firework`.`admin_has_act` (
+  `idAdminHasAct` INT NOT NULL AUTO_INCREMENT,
+  `admin_idAdmin` INT NOT NULL,
+  `act_to_registrar_idaction` INT NOT NULL,
+  PRIMARY KEY (`idAdminHasAct`, `admin_idAdmin`, `act_to_registrar_idaction`),
+  INDEX `fk_admin_has_act_to_registrar_act_to_registrar1_idx` (`act_to_registrar_idaction` ASC) VISIBLE,
+  INDEX `fk_admin_has_act_to_registrar_admin1_idx` (`admin_idAdmin` ASC) VISIBLE,
+  CONSTRAINT `fk_admin_has_act_to_registrar_admin1`
+    FOREIGN KEY (`admin_idAdmin`)
+    REFERENCES `firework`.`admin` (`idAdmin`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_admin_has_act_to_registrar_act_to_registrar1`
+    FOREIGN KEY (`act_to_registrar_idaction`)
+    REFERENCES `firework`.`act_to_registrar` (`idaction`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
 -- Table `firework`.`location`
@@ -9019,12 +9089,14 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
   `admin_idAdmin` INT NULL,
   `application_has_comment_idHasComment` INT NULL,
   `status_idStatus` INT NOT NULL,
+  `act_to_registrar_idaction` INT NOT NULL,
   PRIMARY KEY (`idApplication`, `worker_idWorker`, `posting_idPosting`,`status_idStatus`),
   INDEX `fk_worker_has_posting_posting2_idx` (`posting_idPosting` ASC) VISIBLE,
   INDEX `fk_worker_has_posting_worker2_idx` (`worker_idWorker` ASC) VISIBLE,
   INDEX `fk_application_admin1_idx` (`admin_idAdmin` ASC) VISIBLE,
   INDEX `fk_application_application_has_comment1_idx` (`application_has_comment_idHasComment` ASC) VISIBLE,
   INDEX `fk_application_status1_idx` (`status_idStatus` ASC) VISIBLE,
+  INDEX `fk_application_act_to_registrar1_idx` (`act_to_registrar_idaction` ASC) VISIBLE,
   CONSTRAINT `fk_worker_has_posting_worker2`
     FOREIGN KEY (`worker_idWorker`)
     REFERENCES `firework`.`worker` (`idWorker`)
@@ -9048,6 +9120,11 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
   CONSTRAINT `fk_application_status1`
     FOREIGN KEY (`status_idStatus`)
     REFERENCES `firework`.`status` (`idStatus`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+  CONSTRAINT `fk_application_act_to_registrar1`
+    FOREIGN KEY (`act_to_registrar_idaction`)
+    REFERENCES `firework`.`act_to_registrar` (`idaction`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
