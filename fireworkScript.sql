@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`province` (
   PRIMARY KEY (`idProvince`))
 ENGINE = InnoDB;
 
-INSERT INTO `province` (`idProvince`,`provinceName`) VALUES ('10','กรุงเทพมหานคร');
+INSERT INTO `province` (`idProvince`,`provinceName`) VALUES ('10','Bangkok');
 INSERT INTO `province` (`idProvince`,`provinceName`) VALUES ('11','สมุทรปราการ');
 INSERT INTO `province` (`idProvince`,`provinceName`) VALUES ('12','นนทบุรี');
 INSERT INTO `province` (`idProvince`,`provinceName`) VALUES ('13','ปทุมธานี');
@@ -8939,7 +8939,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`position` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (1,'แม่บ้าน',1);
+INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (1,'Maid',1);
 INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (2,'พ่อครัว',1);
 INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (3,'พนักงานเสิร์ฟ',1);
 INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (4,'พนักงานส่งอาหาร (ไรเดอร์)',1);
@@ -8951,8 +8951,8 @@ DROP TABLE IF EXISTS `firework`.`day` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`day` (
   `idDay` INT NOT NULL AUTO_INCREMENT,
-  `dayName` VARCHAR(45) NOT NULL CHECK (`dayName` IN ('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์')),
-  `abbreviation` VARCHAR(45) NOT NULL CHECK (`abbreviation` IN ('อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส')),
+  `dayName` VARCHAR(45) NOT NULL CHECK (`dayName` IN ('อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'Friday', 'เสาร์')),
+  `abbreviation` VARCHAR(45) NOT NULL CHECK (`abbreviation` IN ('Sun.', 'M.', 'อ', 'พ', 'พฤ', 'ศ', 'ส')),
   PRIMARY KEY (`idDay`))
 ENGINE = InnoDB;
 
@@ -8962,12 +8962,12 @@ LIMIT 0, 1000
 
 -- Date: 2022-02-26 20:38
 */
-INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (1,'อาทิตย์','อา');
-INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (2,'จันทร์','จ');
+INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (1,'อาทิตย์','Sun.');
+INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (2,'จันทร์','M.');
 INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (3,'อังคาร','อ');
 INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (4,'พุธ','พ');
 INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (5,'พฤหัสบดี','พฤ');
-INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (6,'ศุกร์','ศ');
+INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (6,'Friday','ศ');
 INSERT INTO `day` (`idDay`,`dayName`,`abbreviation`) VALUES (7,'เสาร์','ส');
 
 -- -----------------------------------------------------
