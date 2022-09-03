@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   `account_idAccount` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
   `nationality_idnationality` INT NOT NULL,
-  PRIMARY KEY (`idWorker`, `account_idAccount`, `WorkerType_idWorkerType`),
+  PRIMARY KEY (`idWorker`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`),
   UNIQUE INDEX `idworker_UNIQUE` (`idWorker` ASC) VISIBLE,
   INDEX `fk_worker_account1_idx` (`account_idAccount` ASC) VISIBLE,
   INDEX `fk_worker_WorkerType1_idx` (`WorkerType_idWorkerType` ASC) VISIBLE,
@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     FOREIGN KEY (`WorkerType_idWorkerType`)
     REFERENCES `firework`.`WorkerType` (`idWorkerType`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_worker_nationality1`
     FOREIGN KEY (`nationality_idnationality`)
     REFERENCES `firework`.`nationality` (`idnationality`)
@@ -8788,7 +8788,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   `province_idProvince` VARCHAR(2) NOT NULL,
   `district_idDistrict` VARCHAR(4) NOT NULL,
   `sub_district_idSubdistrict` VARCHAR(6) NOT NULL,
-  PRIMARY KEY (`idEmployer`, `account_idAccount`, `businessType_idBusinessType`, `province_idProvince`, `district_idDistrict`, `sub_district_idSubdistrict`),
+  `nationality_idnationality` INT NOT NULL,
+  PRIMARY KEY (`idEmployer`, `account_idAccount`, `businessType_idBusinessType`, `province_idProvince`, `district_idDistrict`, `sub_district_idSubdistrict`, `nationality_idnationality`),
   INDEX `fk_employer_province1_idx` (`province_idProvince` ASC) VISIBLE,
   INDEX `fk_employer_businessType1_idx` (`businessType_idBusinessType` ASC) VISIBLE,
   INDEX `fk_employer_account1_idx` (`account_idAccount` ASC) VISIBLE,
@@ -8819,7 +8820,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     FOREIGN KEY (`sub_district_idSubdistrict`)
     REFERENCES `firework`.`sub_district` (`idSubdistrict`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_employer_nationality1`
     FOREIGN KEY (`nationality_idnationality`)
     REFERENCES `firework`.`nationality` (`idnationality`)
@@ -9090,7 +9091,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
   `application_has_comment_idHasComment` INT NULL,
   `status_idStatus` INT NOT NULL,
   `act_to_registrar_idaction` INT NOT NULL,
-  PRIMARY KEY (`idApplication`, `worker_idWorker`, `posting_idPosting`,`status_idStatus`),
+  PRIMARY KEY (`idApplication`, `worker_idWorker`, `posting_idPosting`,`status_idStatus`, `act_to_registrar_idaction`),
   INDEX `fk_worker_has_posting_posting2_idx` (`posting_idPosting` ASC) VISIBLE,
   INDEX `fk_worker_has_posting_worker2_idx` (`worker_idWorker` ASC) VISIBLE,
   INDEX `fk_application_admin1_idx` (`admin_idAdmin` ASC) VISIBLE,
@@ -9121,7 +9122,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     FOREIGN KEY (`status_idStatus`)
     REFERENCES `firework`.`status` (`idStatus`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_application_act_to_registrar1`
     FOREIGN KEY (`act_to_registrar_idaction`)
     REFERENCES `firework`.`act_to_registrar` (`idaction`)
