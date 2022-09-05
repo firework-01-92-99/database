@@ -161,7 +161,9 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (2,'Inactive');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (3,'Waiting');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (4,'Accept');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (5,'Reject');
-
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (6,'Waiting_Approve');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (7,'Waiting_Edit');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (8,'Waiting_Delete');
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
 -- -----------------------------------------------------
@@ -247,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`nationality` (
 ENGINE = InnoDB;
 
 INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (1,'Thai');
-INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (2,'Lao');
+INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (2,'Laos');
 INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (3,'Myanmar');
 INSERT INTO `nationality` (`idnationality`,`nationality_name`) VALUES (4,'Cambodia');
 
