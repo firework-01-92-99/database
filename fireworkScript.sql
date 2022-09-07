@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -164,6 +164,7 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (5,'Reject');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (6,'Waiting_Approve');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (7,'Waiting_Edit');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (8,'Waiting_Delete');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (9,'Deleted');
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
 -- -----------------------------------------------------
