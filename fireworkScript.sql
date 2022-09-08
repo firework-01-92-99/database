@@ -226,7 +226,7 @@ INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_
 INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (4,'thailand','$2a$10$g5fiz9XkhEUipSPFSHFFyOt.AFcCzI3ijKGqtUP34j4GaXkeamWhu',3,4);
 
 -- -----------------------------------------------------
--- Table `firework`.`WorkerType`
+-- Table `firework`.`worker_type`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `firework`.`worker_type` (
   `idWorkerType` INT NOT NULL AUTO_INCREMENT,
@@ -282,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_worker_WorkerType1`
     FOREIGN KEY (`WorkerType_idWorkerType`)
-    REFERENCES `firework`.`WorkerType` (`idWorkerType`)
+    REFERENCES `firework`.`worker_type` (`idWorkerType`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_worker_nationality1`
