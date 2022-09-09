@@ -172,9 +172,9 @@ DROP TABLE IF EXISTS `firework`.`approve` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`approve` (
   `idApprove` INT NOT NULL AUTO_INCREMENT,
-  `admin_idAdmin` INT NOT NULL,
+  `admin_idAdmin` INT NULL,
   `status_idStatus` INT NOT NULL,
-  PRIMARY KEY (`idApprove`, `admin_idAdmin`, `status_idStatus`),
+  PRIMARY KEY (`idApprove`, `status_idStatus`),
   INDEX `fk_approve_admin1_idx` (`admin_idAdmin` ASC) VISIBLE,
   INDEX `fk_approve_status1_idx` (`status_idStatus` ASC) VISIBLE,
   CONSTRAINT `fk_approve_admin1`
