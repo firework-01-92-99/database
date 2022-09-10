@@ -8710,65 +8710,65 @@ INSERT INTO `sub_district` (`idSubdistrict`,`subDistrict`,`postcode`,`district_i
 INSERT INTO `sub_district` (`idSubdistrict`,`subDistrict`,`postcode`,`district_idDistrict`) VALUES ('961303','มะรือโบออก','96130','9613');
 
 -- -----------------------------------------------------
--- Table `firework`.`businessType`
+-- Table `firework`.`businesstype`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `firework`.`businessType` ;
+DROP TABLE IF EXISTS `firework`.`businesstype` ;
 
-CREATE TABLE IF NOT EXISTS `firework`.`businessType` (
+CREATE TABLE IF NOT EXISTS `firework`.`businesstype` (
   `idBusinessType` INT NOT NULL AUTO_INCREMENT,
   `nameType` VARCHAR(300) NOT NULL COMMENT 'ประเภทการธุรกิจของบริษัท',
   PRIMARY KEY (`idBusinessType`),
   UNIQUE INDEX `nameType_UNIQUE` (`nameType` ASC) VISIBLE)
 ENGINE = InnoDB;
 
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (1,'การก่อสร้างอาคารที่พักอาศัย');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (2,'การก่อสร้างอาคารที่ไม่ใช่ที่พักอาศัย');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (4,'การขายส่ง');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (5,'การดำเนินงานของสถานที่ออกกำลังกาย');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (6,'การผลิตเครื่องประดับจากอัญมณีและโลหะมีค่า');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (7,'การผลิตและผู้จัดจำหน่าย');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (8,'การพิมพ์-สิ่งพิมพ์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (9,'การวิจัยและพัฒนา');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (10,'การศึกษา');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (3,'การเกษตร');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (11,'กิจกรรมการบริหารจัดการด้านการขนส่งและสถานที่เก็บสินค้า');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (13,'กิจกรรมของบริษัทโฆษณา');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (14,'กิจกรรมทางกฎหมาย');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (12,'กิจกรรมเกี่ยวกับบัญชีการทำบัญชีและการตรวจสอบบัญชี การให้คำปรึกษาด้านภาษี');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (15,'กิจกรรมโรงพยาบาล');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (16,'กิจกรรมให้คำปรึกษาด้านการสื่อสารประชาสัมพันธ์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (17,'ขนส่ง');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (18,'คอมพิวเตอร์-ไอที');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (19,'ค้าปลีก');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (21,'จัดนำเที่ยว');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (23,'ที่ปรึกษา');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (22,'ที่ปรึกษาจัดหางาน');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (24,'ธนาคารพาณิชย์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (25,'ธุรกิจอื่นๆ');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (26,'บริการ');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (27,'บริหารศูนย์การค้า');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (28,'บันเทิง');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (29,'ประกันภัย-ประกันชีวิต-ประกันรถยนต์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (30,'พลังงาน');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (31,'พาณิชย์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (32,'ยา, เครื่องสำอาง, อุปกรณ์ทางการแพทย์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (33,'ราชการ/รัฐวิสาหกิจ/มูลนิธิ');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (36,'สื่อสาร');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (35,'ส่งออก-นำเข้า');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (37,'อสังหาริมทรัพย์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (38,'ออกแบบ-ตกแต่ง');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (39,'ออนไลน์มีเดีย');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (40,'อาหาร-เครื่องดื่ม');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (41,'อุตสาหกรรมกระดาษ/เครืองเขียน');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (43,'อุตสาหกรรมบรรจุภัณฑ์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (45,'อุตสาหกรรมยานพาหนะ');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (47,'อุตสาหกรรมสิ่งทอ');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (48,'อุตสาหกรรมอิเลคโทรนิค');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (42,'อุตสาหกรรมเคมี-พลาสติก');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (46,'อุตสาหกรรมโลหะ');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (44,'อุตสาหกรรมไฟฟ้า');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (20,'เงินทุนหลักทรัพย์');
-INSERT INTO `businessType` (`idBusinessType`,`nameType`) VALUES (34,'โรงแรม/รีสอร์ท/สปา/สนามกอล์ฟ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (1,'การก่อสร้างอาคารที่พักอาศัย');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (2,'การก่อสร้างอาคารที่ไม่ใช่ที่พักอาศัย');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (4,'การขายส่ง');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (5,'การดำเนินงานของสถานที่ออกกำลังกาย');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (6,'การผลิตเครื่องประดับจากอัญมณีและโลหะมีค่า');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (7,'การผลิตและผู้จัดจำหน่าย');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (8,'การพิมพ์-สิ่งพิมพ์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (9,'การวิจัยและพัฒนา');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (10,'การศึกษา');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (3,'การเกษตร');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (11,'กิจกรรมการบริหารจัดการด้านการขนส่งและสถานที่เก็บสินค้า');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (13,'กิจกรรมของบริษัทโฆษณา');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (14,'กิจกรรมทางกฎหมาย');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (12,'กิจกรรมเกี่ยวกับบัญชีการทำบัญชีและการตรวจสอบบัญชี การให้คำปรึกษาด้านภาษี');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (15,'กิจกรรมโรงพยาบาล');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (16,'กิจกรรมให้คำปรึกษาด้านการสื่อสารประชาสัมพันธ์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (17,'ขนส่ง');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (18,'คอมพิวเตอร์-ไอที');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (19,'ค้าปลีก');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (21,'จัดนำเที่ยว');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (23,'ที่ปรึกษา');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (22,'ที่ปรึกษาจัดหางาน');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (24,'ธนาคารพาณิชย์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (25,'ธุรกิจอื่นๆ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (26,'บริการ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (27,'บริหารศูนย์การค้า');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (28,'บันเทิง');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (29,'ประกันภัย-ประกันชีวิต-ประกันรถยนต์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (30,'พลังงาน');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (31,'พาณิชย์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (32,'ยา, เครื่องสำอาง, อุปกรณ์ทางการแพทย์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (33,'ราชการ/รัฐวิสาหกิจ/มูลนิธิ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (36,'สื่อสาร');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (35,'ส่งออก-นำเข้า');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (37,'อสังหาริมทรัพย์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (38,'ออกแบบ-ตกแต่ง');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (39,'ออนไลน์มีเดีย');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (40,'อาหาร-เครื่องดื่ม');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (41,'อุตสาหกรรมกระดาษ/เครืองเขียน');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (43,'อุตสาหกรรมบรรจุภัณฑ์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (45,'อุตสาหกรรมยานพาหนะ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (47,'อุตสาหกรรมสิ่งทอ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (48,'อุตสาหกรรมอิเลคโทรนิค');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (42,'อุตสาหกรรมเคมี-พลาสติก');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (46,'อุตสาหกรรมโลหะ');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (44,'อุตสาหกรรมไฟฟ้า');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (20,'เงินทุนหลักทรัพย์');
+INSERT INTO `businesstype` (`idBusinessType`,`nameType`) VALUES (34,'โรงแรม/รีสอร์ท/สปา/สนามกอล์ฟ');
 
 
 -- -----------------------------------------------------
@@ -8806,7 +8806,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_employer_businessType1`
     FOREIGN KEY (`businessType_idBusinessType`)
-    REFERENCES `firework`.`businessType` (`idBusinessType`)
+    REFERENCES `firework`.`businesstype` (`idBusinessType`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_employer_account1`
