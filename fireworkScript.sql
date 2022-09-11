@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`admin` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `admin` (`idAdmin`,`username`,`password`,`firstName`,`lastName`,`role_idRole`) VALUES (1,'mandolin','mandolin123','mandolin','carpet',1);
+INSERT INTO `admin` (`idAdmin`,`username`,`password`,`firstName`,`lastName`,`role_idRole`) VALUES (1,'mandolin@gmail.com','mandolin123','mandolin','carpet',1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`status`
@@ -220,10 +220,10 @@ CREATE TABLE IF NOT EXISTS `firework`.`account` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (1,'mandolin','$2a$10$Q97Cg5G6ga.8.dBBdvFZkeKRLgOSVxty1XbXkWUaoVkQNHHUChsMC',1,1);
-INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (2,'lambchop','$2a$10$bG9qHXsqYHTVAaqWtxy0FuIocu57yyoxUBWqy4PCzCOEsfmWQM2Lq',2,2);
-INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (3,'stardust','$2a$10$e9W4EN0yx22pKqofD5dNmOtZJa0XbtoR/ePj7qVMRHDQs8cJqRP/a',3,3);
-INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (4,'thailand','$2a$10$g5fiz9XkhEUipSPFSHFFyOt.AFcCzI3ijKGqtUP34j4GaXkeamWhu',3,4);
+INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (1,'mandolin@gmail.com','$2a$10$Q97Cg5G6ga.8.dBBdvFZkeKRLgOSVxty1XbXkWUaoVkQNHHUChsMC',1,1);
+INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (2,'lambchop@gmail.com','$2a$10$bG9qHXsqYHTVAaqWtxy0FuIocu57yyoxUBWqy4PCzCOEsfmWQM2Lq',2,2);
+INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (3,'stardust@gmail.com','$2a$10$e9W4EN0yx22pKqofD5dNmOtZJa0XbtoR/ePj7qVMRHDQs8cJqRP/a',3,3);
+INSERT INTO `account` (`idAccount`,`username`,`password`,`role_idRole`,`approve_idApprove`) VALUES (4,'thailand@gmail.com','$2a$10$g5fiz9XkhEUipSPFSHFFyOt.AFcCzI3ijKGqtUP34j4GaXkeamWhu',3,4);
 
 -- -----------------------------------------------------
 -- Table `firework`.`worker_type`
