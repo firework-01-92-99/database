@@ -8841,7 +8841,7 @@ INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`en
 DROP TABLE IF EXISTS `firework`.`edit_employer` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`edit_employer` (
-  `idEditEmployer` INT NOT NULL,
+  `idEditEmployer` INT NOT NULL AUTO_INCREMENT,
   `establishmentName` VARCHAR(45) NOT NULL,
   `entrepreneurfName` VARCHAR(45) NOT NULL,
   `entrepreneurlName` VARCHAR(45) NOT NULL,
@@ -9111,7 +9111,7 @@ INSERT INTO `favorite` (`idFavorite`, `worker_idWorker`, `posting_idPosting`) VA
 DROP TABLE IF EXISTS `firework`.`edit_worker` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`edit_worker` (
-  `idEditWorker` INT NOT NULL,
+  `idEditWorker` INT NOT NULL AUTO_INCREMENT,
   `verifyPic` MEDIUMTEXT NOT NULL,
   `firstName` VARCHAR(45) NOT NULL,
   `middleName` VARCHAR(45) NOT NULL,
