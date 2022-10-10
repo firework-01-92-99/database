@@ -8894,38 +8894,22 @@ DROP TABLE IF EXISTS `firework`.`act_to_registrar` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`act_to_registrar` (
   `idaction` INT NOT NULL AUTO_INCREMENT,
-  `act_name` VARCHAR(100) NOT NULL,
-  `description` VARCHAR(2000) NOT NULL,
-  PRIMARY KEY (`idaction`))
-ENGINE = InnoDB;
-
-INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`) VALUES (1, 'มานี', 'อธิบายอธิบายอธิบายอธิบายอธิบาย');
-
--- -----------------------------------------------------
--- Table `firework`.`admin_has_act`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `firework`.`admin_has_act` ;
-
-CREATE TABLE IF NOT EXISTS `firework`.`admin_has_act` (
-  `idAdminHasAct` INT NOT NULL AUTO_INCREMENT,
+  `act_name` VARCHAR(300) NOT NULL,
+  `description` VARCHAR(2000) NULL,
   `admin_idAdmin` INT NOT NULL,
-  `act_to_registrar_idaction` INT NOT NULL,
-  PRIMARY KEY (`idAdminHasAct`, `admin_idAdmin`, `act_to_registrar_idaction`),
-  INDEX `fk_admin_has_act_to_registrar_act_to_registrar1_idx` (`act_to_registrar_idaction` ASC) VISIBLE,
-  INDEX `fk_admin_has_act_to_registrar_admin1_idx` (`admin_idAdmin` ASC) VISIBLE,
-  CONSTRAINT `fk_admin_has_act_to_registrar_admin1`
+  PRIMARY KEY (`idaction`, `admin_idAdmin`),
+  INDEX `fk_act_to_registrar_admin1_idx` (`admin_idAdmin` ASC) VISIBLE,
+  CONSTRAINT `fk_act_to_registrar_admin1`
     FOREIGN KEY (`admin_idAdmin`)
     REFERENCES `firework`.`admin` (`idAdmin`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_admin_has_act_to_registrar_act_to_registrar1`
-    FOREIGN KEY (`act_to_registrar_idaction`)
-    REFERENCES `firework`.`act_to_registrar` (`idaction`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `admin_has_act` (`idAdminHasAct`, `admin_idAdmin`, `act_to_registrar_idaction`) VALUES (1, 1, 1);
+INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (1, 'นายจ้างรับคนต่างด้าวนั้นเข้าทํางาน', NULL, 1);
+INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (2, 'นายจ้างไม่รับคนต่างด้าวนั้นเข้าทํางาน', NULL, 1);
+INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (3, 'คนต่างด้าวไม่ยินยอมทํางานกับนายจ้าง', NULL, 1);
+INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (4, 'คนต่างด้าวออกจากงานไม่ว่าด้วยเหตุใด', NULL, 1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location`
@@ -9266,6 +9250,22 @@ INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (13,4,3);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (14,5,3);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (15,6,3);
+
+-- -----------------------------------------------------
+-- Table `firework`.`otp`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `firework`.`otp` (
+  `idOtp` INT NOT NULL AUTO_INCREMENT,
+  `otpNo` INT NOT NULL,
+  `account_idAccount` INT NOT NULL,
+  PRIMARY KEY (`idOtp`, `account_idAccount`),
+  INDEX `fk_otp_account1_idx` (`account_idAccount` ASC) VISIBLE,
+  CONSTRAINT `fk_otp_account1`
+    FOREIGN KEY (`account_idAccount`)
+    REFERENCES `firework`.`account` (`idAccount`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
