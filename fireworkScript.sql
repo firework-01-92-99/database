@@ -8787,7 +8787,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   `phone` VARCHAR(10) NOT NULL COMMENT 'เบอร์มือถือ',
   `email` VARCHAR(45) NULL,
   `lineId` VARCHAR(45) NULL,
-  `verifyCert` MEDIUMTEXT NOT NULL,
+  `profile` MEDIUMTEXT NOT NULL,
   `account_idAccount` INT NOT NULL,
   `businessType_idBusinessType` INT NOT NULL,
   `province_idProvince` VARCHAR(2) NOT NULL,
@@ -8833,7 +8833,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`verifyCert`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','1234','2',24,10,1001,100101,1);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','1234','2',24,10,1001,100101,1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`edit_employer`
@@ -8850,7 +8850,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`edit_employer` (
   `phone` VARCHAR(10) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `lineId` VARCHAR(45) NOT NULL,
-  `verifyCert` MEDIUMTEXT NOT NULL,
+  `profile` MEDIUMTEXT NOT NULL,
   `provinceName` VARCHAR(45) NOT NULL,
   `districtName` VARCHAR(200) NOT NULL,
   `subDistrict` VARCHAR(200) NOT NULL,
@@ -8865,7 +8865,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`edit_employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `edit_employer` (`idEditEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `email`, `lineId`, `verifyCert`, `provinceName`, `districtName`, `subDistrict`, `postcode`, `employer_idEmployer`) VALUES (1, 'Thunder co., ltd.', 'Thunder', 'Cloud', 'ซอย 2 66', '025587485', '0845796335', 'thunder@cloud.com', 'thunder12345', '4321', 'สมุทรปราการ', 'อำเภอเมืองสมุทรปราการ', 'ปากน้ำ', '10270', 1);
+INSERT INTO `edit_employer` (`idEditEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `email`, `lineId`, `profile`, `provinceName`, `districtName`, `subDistrict`, `postcode`, `employer_idEmployer`) VALUES (1, 'Thunder co., ltd.', 'Thunder', 'Cloud', 'ซอย 2 66', '025587485', '0845796335', 'thunder@cloud.com', 'thunder12345', '4321', 'สมุทรปราการ', 'อำเภอเมืองสมุทรปราการ', 'ปากน้ำ', '10270', 1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location_pic`
@@ -9125,6 +9125,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`application_has_comment` (
 ENGINE = InnoDB;
 
 INSERT INTO `application_has_comment` (`idHasComment`, `description`) VALUES (1, 'อธิบาย');
+INSERT INTO `application_has_comment` (`idHasComment`, `description`) VALUES (2, 'อธิบาย');
+INSERT INTO `application_has_comment` (`idHasComment`, `description`) VALUES (3, 'อธิบาย');
 
 -- -----------------------------------------------------
 -- Table `firework`.`application`
@@ -9178,7 +9180,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 1, 1, 1, 1, 4, 1);
+INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 1, 3, 1, 1, 3, NULL);
+INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 1, 4, 1, 2, 4, 1);
+INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 2, 4, 1, 3, 5, 2);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
