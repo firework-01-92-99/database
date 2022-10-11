@@ -231,12 +231,13 @@ INSERT INTO `account` (`idAccount`,`email`,`password`,`role_idRole`,`approve_idA
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `firework`.`worker_type` (
   `idWorkerType` INT NOT NULL AUTO_INCREMENT,
-  `typeName` VARCHAR(7) NOT NULL CHECK (`typeName` IN ('Migrant', 'Thai')) COMMENT 'Migrant/Thai',
+  `typeName` VARCHAR(7) NOT NULL CHECK (`typeName` IN ('Migrant', 'Thai', 'All')) COMMENT 'Migrant/Thai',
   PRIMARY KEY (`idWorkerType`))
 ENGINE = InnoDB;
 
 INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (1,'Migrant');
 INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (2,'Thai');
+INSERT INTO `worker_type` (`idWorkerType`,`typeName`) VALUES (3,'All');
 
 -- -----------------------------------------------------
 -- Table `firework`.`nationality`
