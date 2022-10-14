@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -166,6 +166,17 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (7,'Waiting_Edit');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (8,'Waiting_Delete');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (9,'Deleted');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (10,'Waiting_OTP');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (11,'Wating_EmployerOnWeb');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (12,'Accept_EmployerOnWeb');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (13,'Reject_EmployerOnWeb');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (14,'Wating_EmployerSummary');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (15,'Accept_WorkerOnSite');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (16,'Reject_WorkerOnSite');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (17,'Wating_AdminSent');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (18,'Admin_Confirm');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (19,'Admin_Cancel');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (20,'Done');
+
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
 -- -----------------------------------------------------
