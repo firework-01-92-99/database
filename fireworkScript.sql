@@ -306,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
 ENGINE = InnoDB;
 
 INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (1,'MC576508','image2.jpg','F','ซิ่น','เมียท','อู','0912345678',3,1,3);
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (2,'1100211111111','image3.jpg','M','รักชาติ',NULL,'ศาสนา','0999999999',4,2,1);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (2,'1100211111111','image3.jpg','M','รักชาติ','-','ศาสนา','0999999999',4,2,1);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
@@ -9195,9 +9195,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 1, 1, 1, 1, 3, NULL);
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 1, 4, 1, 2, 4, 1);
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 2, 5, 1, 3, 5, 2);
+INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 1, 1, 1, 1, 11, NULL);
+INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 1, 4, 1, 2, 12, 1);
+INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 2, 5, 1, 3, 13, 2);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
