@@ -8845,7 +8845,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','1234','2',24,10,1001,100101,1);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','logo-lightning.jpg','2',24,10,1001,100101,1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`edit_employer`
@@ -8897,7 +8897,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`location_pic` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `location_pic` (`idPic`,`locPic`,`employer_idEmployer`) VALUES (1,'aaaaiiiiyaaaa','1');
+INSERT INTO `location_pic` (`idPic`,`locPic`,`employer_idEmployer`) VALUES (1,'test.jpg','1');
 
 -- -----------------------------------------------------
 -- Table `firework`.`act_to_registrar`
