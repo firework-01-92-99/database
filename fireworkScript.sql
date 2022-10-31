@@ -8800,7 +8800,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   `address` VARCHAR(100) NOT NULL,
   `tel` VARCHAR(9) NULL COMMENT 'เบอร์ บ.',
   `phone` VARCHAR(10) NOT NULL COMMENT 'เบอร์มือถือ',
-  `email` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NOT NULL,
   `lineId` VARCHAR(45) NULL,
   `profile` MEDIUMTEXT NOT NULL,
   `account_idAccount` INT NOT NULL,
@@ -8848,7 +8848,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lighting@light.com','light12345','logo-lightning.jpg','2',24,10,1001,100101,1);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lambchop@gmail.com','light12345','logo-lightning.jpg','2',24,10,1001,100101,1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`edit_employer`
@@ -8863,7 +8863,6 @@ CREATE TABLE IF NOT EXISTS `firework`.`edit_employer` (
   `address` VARCHAR(100) NOT NULL,
   `tel` VARCHAR(9) NOT NULL,
   `phone` VARCHAR(10) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
   `lineId` VARCHAR(45) NOT NULL,
   `profile` MEDIUMTEXT NOT NULL,
   `provinceName` VARCHAR(45) NOT NULL,
@@ -8880,7 +8879,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`edit_employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `edit_employer` (`idEditEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `email`, `lineId`, `profile`, `provinceName`, `districtName`, `subDistrict`, `postcode`, `employer_idEmployer`) VALUES (1, 'Thunder co., ltd.', 'Thunder', 'Cloud', 'ซอย 2 66', '025587485', '0845796335', 'thunder@cloud.com', 'thunder12345', '4321', 'สมุทรปราการ', 'อำเภอเมืองสมุทรปราการ', 'ปากน้ำ', '10270', 1);
+INSERT INTO `edit_employer` (`idEditEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `lineId`, `profile`, `provinceName`, `districtName`, `subDistrict`, `postcode`, `employer_idEmployer`) VALUES (1, 'Thunder co., ltd.', 'Thunder', 'Cloud', 'ซอย 2 66', '025587485', '0845796335', 'thunder12345', '4321', 'สมุทรปราการ', 'อำเภอเมืองสมุทรปราการ', 'ปากน้ำ', '10270', 1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location_pic`
