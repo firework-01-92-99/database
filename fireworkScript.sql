@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -176,6 +176,9 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (17,'Wating_AdminSent');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (18,'Admin_Confirm');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (19,'Admin_Cancel');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (20,'Done');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (21,'Wating_WorkerFinishJob');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (22,'FinishJob');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (23,'BreakShort');
 
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
@@ -9135,13 +9138,14 @@ DROP TABLE IF EXISTS `firework`.`application_has_comment` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`application_has_comment` (
   `idHasComment` INT NOT NULL AUTO_INCREMENT,
-  `description` VARCHAR(200) NULL,
+  `descriptionRejectOnWeb` VARCHAR(2000) NULL,
+  `descriptionBreakShort` VARCHAR(2000) NULL,
   PRIMARY KEY (`idHasComment`))
 ENGINE = InnoDB;
 
-INSERT INTO `application_has_comment` (`idHasComment`, `description`) VALUES (1, 'อธิบาย');
-INSERT INTO `application_has_comment` (`idHasComment`, `description`) VALUES (2, 'อธิบาย');
-INSERT INTO `application_has_comment` (`idHasComment`, `description`) VALUES (3, 'อธิบาย');
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionBreakShort`) VALUES (1, 'ทำไมไม่รับ', 'ทำไมไล่ออก');
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionBreakShort`) VALUES (2, 'ทำไมไม่รับ', 'ทำไมไล่ออก');
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionBreakShort`) VALUES (3, 'ทำไมไม่รับ', 'ทำไมไล่ออก');
 
 -- -----------------------------------------------------
 -- Table `firework`.`application`
