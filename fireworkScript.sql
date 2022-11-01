@@ -9138,13 +9138,14 @@ DROP TABLE IF EXISTS `firework`.`application_has_comment` ;
 CREATE TABLE IF NOT EXISTS `firework`.`application_has_comment` (
   `idHasComment` INT NOT NULL AUTO_INCREMENT,
   `descriptionRejectOnWeb` VARCHAR(2000) NULL,
+  `descriptionRejectOnSite` VARCHAR(2000) NULL,
   `descriptionBreakShort` VARCHAR(2000) NULL,
   PRIMARY KEY (`idHasComment`))
 ENGINE = InnoDB;
 
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionBreakShort`) VALUES (1, 'ทำไมไม่รับ', 'ทำไมไล่ออก');
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionBreakShort`) VALUES (2, 'ทำไมไม่รับ', 'ทำไมไล่ออก');
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionBreakShort`) VALUES (3, 'ทำไมไม่รับ', 'ทำไมไล่ออก');
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (1, 'ทำไมไม่รับบนเว็บ', 'ทำไมไม่หน้างาน', 'ทำไมไล่ออก');
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (2, 'ทำไมไม่รับบนเว็บ', 'ทำไมไม่หน้างาน', 'ทำไมไล่ออก');
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (3, 'ทำไมไม่รับบนเว็บ', 'ทำไมไม่หน้างาน', 'ทำไมไล่ออก');
 
 -- -----------------------------------------------------
 -- Table `firework`.`application`
