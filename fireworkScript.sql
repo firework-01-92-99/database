@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -179,6 +179,7 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (20,'Done');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (21,'Wating_WorkerFinishJob');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (22,'FinishJob');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (23,'BreakShort');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (24,'Waiting_Rating');
 
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
@@ -9154,6 +9155,7 @@ DROP TABLE IF EXISTS `firework`.`application` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`application` (
   `idApplication` INT NOT NULL AUTO_INCREMENT,
+  `idStatusAdmin` INT NULL,
   `worker_idWorker` INT NOT NULL,
   `posting_idPosting` INT NOT NULL,
   `admin_idAdmin` INT NULL,
@@ -9199,9 +9201,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 1, 1, 1, 1, 11, NULL);
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 1, 4, 1, 2, 12, 1);
-INSERT INTO `application` (`idApplication`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 2, 5, 1, 3, 13, 2);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, NULL, 1, 1, 1, 1, 11, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, NULL, 1, 4, 1, 2, 12, 1);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, NULL, 2, 5, 1, 3, 13, 2);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
