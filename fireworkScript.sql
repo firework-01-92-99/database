@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating', 'workerRated', 'empRated')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -180,6 +180,8 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (21,'Wating_WorkerFinishJo
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (22,'FinishJob');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (23,'BreakShort');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (24,'Waiting_Rating');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (25,'workerRated');
+INSERT INTO `status` (`idStatus`,`statusName`) VALUES (26,'empRated');
 
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
@@ -9201,9 +9203,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, NULL, 1, 1, 1, 1, 11, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, NULL, 1, 4, 1, 2, 12, 1);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, NULL, 2, 5, 1, 3, 13, 2);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, 1, 1, 1, 1, 11, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, 1, 4, 1, 2, 12, 1);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, 2, 5, 1, 3, 13, 2);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
@@ -9233,8 +9235,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`ratings` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `ratings` (`idRating`, `rate`, `comment`, `timestamp`, `for_who`, `employer_idEmployer`, `worker_idWorker`) VALUES (1, 4, 'อธิบาย', '2022-09-20', 'worker', 1, 1);
-INSERT INTO `ratings` (`idRating`, `rate`, `comment`, `timestamp`, `for_who`, `employer_idEmployer`, `worker_idWorker`) VALUES (2, 3, 'อธิบาย', '2022-09-19', 'employer', 1, 1);
+INSERT INTO `ratings` (`idRating`, `rate`, `comment`, `timestamp`, `for_who`, `employer_idEmployer`, `worker_idWorker`) VALUES (1, 4, 'ความคิดเห็น', '2022-09-20', 'ROLE_WORKER', 1, 1);
+INSERT INTO `ratings` (`idRating`, `rate`, `comment`, `timestamp`, `for_who`, `employer_idEmployer`, `worker_idWorker`) VALUES (2, 3, 'ความคิดเห็น', '2022-09-19', 'ROLE_EMP', 1, 1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`posting_has_day`
