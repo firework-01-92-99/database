@@ -9235,9 +9235,6 @@ CREATE TABLE IF NOT EXISTS `firework`.`ratings` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `ratings` (`idRating`, `rate`, `comment`, `timestamp`, `for_who`, `employer_idEmployer`, `worker_idWorker`) VALUES (1, 4, 'ความคิดเห็น', '2022-09-20', 'ROLE_WORKER', 1, 1);
-INSERT INTO `ratings` (`idRating`, `rate`, `comment`, `timestamp`, `for_who`, `employer_idEmployer`, `worker_idWorker`) VALUES (2, 3, 'ความคิดเห็น', '2022-09-19', 'ROLE_EMP', 1, 1);
-
 -- -----------------------------------------------------
 -- Table `firework`.`posting_has_day`
 -- -----------------------------------------------------
