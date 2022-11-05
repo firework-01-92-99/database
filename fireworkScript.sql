@@ -8882,8 +8882,6 @@ CREATE TABLE IF NOT EXISTS `firework`.`edit_employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `edit_employer` (`idEditEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `lineId`, `profile`, `provinceName`, `districtName`, `subDistrict`, `postcode`, `employer_idEmployer`) VALUES (1, 'Thunder co., ltd.', 'Thunder', 'Cloud', 'ซอย 2 66', '025587485', '0845796335', 'thunder12345', '4321', 'สมุทรปราการ', 'อำเภอเมืองสมุทรปราการ', 'ปากน้ำ', '10270', 1);
-
 -- -----------------------------------------------------
 -- Table `firework`.`location_pic`
 -- -----------------------------------------------------
@@ -8922,11 +8920,6 @@ CREATE TABLE IF NOT EXISTS `firework`.`act_to_registrar` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (1, 'นายจ้างรับคนต่างด้าวนั้นเข้าทํางาน', NULL, 1);
-INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (2, 'นายจ้างไม่รับคนต่างด้าวนั้นเข้าทํางาน', NULL, 1);
-INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (3, 'คนต่างด้าวไม่ยินยอมทํางานกับนายจ้าง', NULL, 1);
-INSERT INTO `act_to_registrar` (`idaction`, `act_name`, `description`, `admin_idAdmin`) VALUES (4, 'คนต่างด้าวออกจากงานไม่ว่าด้วยเหตุใด', NULL, 1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`location`
@@ -9130,8 +9123,6 @@ CREATE TABLE IF NOT EXISTS `firework`.`edit_worker` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-INSERT INTO `edit_worker` (`idEditWorker`, `verifyPic`, `firstName`, `middleName`, `lastName`, `phone`, `worker_idWorker`) VALUES (1, '1234', 'ซ่อน', 'ให้', 'มิด', '0812345888', 1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`application_has_comment`
