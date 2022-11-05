@@ -9195,8 +9195,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
 ENGINE = InnoDB;
 
 INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, 1, 1, 1, 1, 11, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, 1, 4, 1, 2, 12, 1);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, 2, 5, 1, 3, 13, 2);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, 1, 4, 1, 2, 12, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, 2, 5, 1, 3, 13, NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
