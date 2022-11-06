@@ -287,6 +287,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
   `middleName` VARCHAR(45) NULL,
   `lastName` VARCHAR(45) NULL,
   `phone` VARCHAR(10) NOT NULL,
+  `rate` DECIMAL(2,2) NULL,
   `account_idAccount` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
   `nationality_idnationality` INT NOT NULL,
@@ -311,8 +312,8 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (1,'MC576508','image2.jpg','F','ซิ่น','เมียท','อู','0912345678',3,1,3);
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (2,'1100211111111','image3.jpg','M','รักชาติ','-','ศาสนา','0999999999',4,2,1);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`, `rate`, `account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (1,'MC576508','image2.jpg','F','ซิ่น','เมียท','อู','0912345678', NULL,3,1,3);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`, `rate`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (2,'1100211111111','image3.jpg','M','รักชาติ','-','ศาสนา','0999999999', NULL, 4,2,1);
 -- -----------------------------------------------------
 -- Table `firework`.`district`
 -- -----------------------------------------------------
@@ -8806,6 +8807,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
   `email` VARCHAR(45) NOT NULL,
   `lineId` VARCHAR(45) NULL,
   `profile` MEDIUMTEXT NOT NULL,
+  `rate` DECIMAL(2,2) NULL,
   `account_idAccount` INT NOT NULL,
   `businessType_idBusinessType` INT NOT NULL,
   `province_idProvince` VARCHAR(2) NOT NULL,
@@ -8851,7 +8853,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`,`account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lambchop@gmail.com','light12345','logo-lightning.jpg','2',24,10,1001,100101,1);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`, `rate`, `account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lambchop@gmail.com','light12345','logo-lightning.jpg', NULL,'2',24,10,1001,100101,1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`edit_employer`
