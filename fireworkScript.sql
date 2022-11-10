@@ -9007,6 +9007,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(45) NULL,
   `welfare` VARCHAR(2000) NOT NULL,
+  `date` DATE NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `status_idStatus` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
@@ -9045,11 +9046,11 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (1,'F','<ul style="list-style-type:disc"> <li> เช็ดทำความสะอาดสิ่งของ </li> <li> กวาดพื้นถูพื้น </li> <li> ทำงานต่าง ๆ ที่ได้รับมอบหมาย </li> </ul>',35,45,14500,22000,'y','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก </li> <li> พนักงานมีอาหารฟรี 2 มื้อต่อวัน ( บางตำแหน่ง )</li> <li> โบนัสเบี้ยขยัน, ค่าพาหนะเดินทาง, ค่าล่วงเวลา</li> <li> ประกันสังคม, ตรวจสุขภาพประจำปี</li> <li> ส่งเสริมสนับสนุนการฝึกอบรมพนักงาน ทั้งในต่างประเทศและต่างประเทศ</li> <li> โบนัสแนะนำพนักงาน, โบนัสอาวุโส, อื่นๆ</li> <li> ของขวัญวันเกิด</li> <li> ชุดยูนิฟอร์ม ( บางตำแหน่ง )</li> </ul>',1,1,1,1,1);
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (2,'M','<ul style="list-style-type:disc"> <li> ประกอบอาหาร </li> <li> จัดเตรียมวัตถุดิบในการประกอบอาหาร ตลอดจนภาชนะ เครื่องใช้ในครัว </li> <li> ควบคุมดูแลรักษาความสะอาดบริเวณที่ประกอบอาหาร </li> <li> จัดสต๊อกและวัตถุดิบในการประกอบอาหาร </li> <li> งานอื่นๆตามที่ได้รับมอบหมาย </li> </ul>',20,35,12000,15000,'n','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> <li> ค่าใช้จ่ายในการเดินทาง</li> <li> ค่ายานพาหนะ</li> <li> ตามข้อตกลงของบริษัท</li> <li> เงินโบนัสตามผลงาน</li> </ul>',1,1,1,3,2);
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (3,'A','<ul style="list-style-type:disc"> <li> จัดสถานที่และทำความสะอาดก่อนเปิดร้าน </li> <li> ต้อนรับลูกค้าด้วยรอยยิ้มอยู่เสมอ </li> <li> รับออเดอร์และเสิร์ฟอาหาร เครื่องดื่ม </li> <li> ดูแลเซอร์วิส ให้ความช่อยเหลือลูกค้า </li> <li> เก็บและทำความสะอาดร้านหลังปิดให้บริการ </li> </ul>',25,40,300,350,'n','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> บุคลิกร่าเริงแจ่มใส</li> <li> กล้าแสดงออก</li> <li> ช่างสังเกตผู้คน</li> <li> มีความกระตื่อรือร้น</li> <li> พร้อมเรียนอยู่สิ่งใหม่ ๆ เพื่อพัฒนาตนเองอยู่เสมอ</li> </ul>',1,1,2,2,3);
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (4,'A','<ul style="list-style-type:disc"> <li> ส่งอาหารตามออร์เดอร์ </li> <li> งานอื่นๆ ที่ได้รับมอบหมาย </li> </ul>',18,50,11000,13500,'n','7:00','22:00',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> <li> ค่าตอบแทนพิเศษ</li> <li> เงินโบนัสตามผลงาน</li> <li> ทำงานเป็นกะ</li> </ul>',1,1,1,3,4);
-INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`,`employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (5,'M','<ul style="list-style-type:disc"> <li> ทำความสะอาดภายในโรงานและออฟฟิศสำนักงาน </li> <li> งานอื่นๆ ที่ได้รับมอบหมาย </li> </ul>',25,36,9500,10500,'n','7:30','17:30',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> </ul>',1,2,3,3,5);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (1,'F','<ul style="list-style-type:disc"> <li> เช็ดทำความสะอาดสิ่งของ </li> <li> กวาดพื้นถูพื้น </li> <li> ทำงานต่าง ๆ ที่ได้รับมอบหมาย </li> </ul>',35,45,14500,22000,'y','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> พนักงานมีส่วนลดค่าอาหารพนักงาน 50% ภายในร้านไหตี่เลาทุกสาขาทั่วโลก </li> <li> พนักงานมีอาหารฟรี 2 มื้อต่อวัน ( บางตำแหน่ง )</li> <li> โบนัสเบี้ยขยัน, ค่าพาหนะเดินทาง, ค่าล่วงเวลา</li> <li> ประกันสังคม, ตรวจสุขภาพประจำปี</li> <li> ส่งเสริมสนับสนุนการฝึกอบรมพนักงาน ทั้งในต่างประเทศและต่างประเทศ</li> <li> โบนัสแนะนำพนักงาน, โบนัสอาวุโส, อื่นๆ</li> <li> ของขวัญวันเกิด</li> <li> ชุดยูนิฟอร์ม ( บางตำแหน่ง )</li> </ul>', '2021-01-01',1,1,1,1,1);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (2,'M','<ul style="list-style-type:disc"> <li> ประกอบอาหาร </li> <li> จัดเตรียมวัตถุดิบในการประกอบอาหาร ตลอดจนภาชนะ เครื่องใช้ในครัว </li> <li> ควบคุมดูแลรักษาความสะอาดบริเวณที่ประกอบอาหาร </li> <li> จัดสต๊อกและวัตถุดิบในการประกอบอาหาร </li> <li> งานอื่นๆตามที่ได้รับมอบหมาย </li> </ul>',20,35,12000,15000,'n','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> <li> ค่าใช้จ่ายในการเดินทาง</li> <li> ค่ายานพาหนะ</li> <li> ตามข้อตกลงของบริษัท</li> <li> เงินโบนัสตามผลงาน</li> </ul>', '2021-01-01', 1,1,1,3,2);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (3,'A','<ul style="list-style-type:disc"> <li> จัดสถานที่และทำความสะอาดก่อนเปิดร้าน </li> <li> ต้อนรับลูกค้าด้วยรอยยิ้มอยู่เสมอ </li> <li> รับออเดอร์และเสิร์ฟอาหาร เครื่องดื่ม </li> <li> ดูแลเซอร์วิส ให้ความช่อยเหลือลูกค้า </li> <li> เก็บและทำความสะอาดร้านหลังปิดให้บริการ </li> </ul>',25,40,300,350,'n','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> บุคลิกร่าเริงแจ่มใส</li> <li> กล้าแสดงออก</li> <li> ช่างสังเกตผู้คน</li> <li> มีความกระตื่อรือร้น</li> <li> พร้อมเรียนอยู่สิ่งใหม่ ๆ เพื่อพัฒนาตนเองอยู่เสมอ</li> </ul>', '2021-01-01', 1,1,2,2,3);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (4,'A','<ul style="list-style-type:disc"> <li> ส่งอาหารตามออร์เดอร์ </li> <li> งานอื่นๆ ที่ได้รับมอบหมาย </li> </ul>',18,50,11000,13500,'n','7:00','22:00',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> <li> ค่าตอบแทนพิเศษ</li> <li> เงินโบนัสตามผลงาน</li> <li> ทำงานเป็นกะ</li> </ul>', '2021-01-01', 1,1,1,3,4);
+INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (5,'M','<ul style="list-style-type:disc"> <li> ทำความสะอาดภายในโรงานและออฟฟิศสำนักงาน </li> <li> งานอื่นๆ ที่ได้รับมอบหมาย </li> </ul>',25,36,9500,10500,'n','7:30','17:30',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> </ul>', '2021-01-01', 1,2,3,3,5);
 
 
 -- -----------------------------------------------------
@@ -9151,6 +9152,7 @@ DROP TABLE IF EXISTS `firework`.`application` ;
 CREATE TABLE IF NOT EXISTS `firework`.`application` (
   `idApplication` INT NOT NULL AUTO_INCREMENT,
   `idStatusAdmin` INT NULL,
+  `date` DATE NOT NULL,
   `worker_idWorker` INT NOT NULL,
   `posting_idPosting` INT NOT NULL,
   `admin_idAdmin` INT NULL,
@@ -9196,9 +9198,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, 1, 1, 1, 1, 11, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, 1, 4, 1, 2, 12, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, 2, 5, 1, 3, 13, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, '2022-01-01', 1, 1, 1, 1, 11, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, '2022-01-01', 1, 4, 1, 2, 12, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, '2022-01-01', 2, 5, 1, 3, 13, NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
@@ -9213,9 +9215,11 @@ CREATE TABLE IF NOT EXISTS `firework`.`ratings` (
   `for_who` VARCHAR(45) NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `worker_idWorker` INT NOT NULL,
-  PRIMARY KEY (`idRating`, `employer_idEmployer`, `worker_idWorker`),
+  `posting_idPosting` INT NOT NULL,
+  PRIMARY KEY (`idRating`, `employer_idEmployer`, `worker_idWorker`, `posting_idPosting`),
   INDEX `fk_ratings_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
   INDEX `fk_ratings_worker1_idx` (`worker_idWorker` ASC) VISIBLE,
+  INDEX `fk_ratings_posting1_idx` (`posting_idPosting` ASC) VISIBLE,
   CONSTRAINT `fk_ratings_employer1`
     FOREIGN KEY (`employer_idEmployer`)
     REFERENCES `firework`.`employer` (`idEmployer`)
@@ -9224,6 +9228,11 @@ CREATE TABLE IF NOT EXISTS `firework`.`ratings` (
   CONSTRAINT `fk_ratings_worker1`
     FOREIGN KEY (`worker_idWorker`)
     REFERENCES `firework`.`worker` (`idWorker`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ratings_posting1`
+    FOREIGN KEY (`posting_idPosting`)
+    REFERENCES `firework`.`posting` (`idPosting`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
