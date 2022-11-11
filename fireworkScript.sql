@@ -8973,21 +8973,21 @@ DROP TABLE IF EXISTS `firework`.`position` ;
 CREATE TABLE IF NOT EXISTS `firework`.`position` (
   `idposition` INT NOT NULL AUTO_INCREMENT,
   `positionName` VARCHAR(300) NOT NULL,
-  `employer_idEmployer` INT NOT NULL,
-  PRIMARY KEY (`idposition`, `employer_idEmployer`),
-  INDEX `fk_position_employer1_idx` (`employer_idEmployer` ASC) VISIBLE,
-  CONSTRAINT `fk_position_employer1`
-    FOREIGN KEY (`employer_idEmployer`)
-    REFERENCES `firework`.`employer` (`idEmployer`)
+  `status_idStatus` INT NOT NULL,
+  PRIMARY KEY (`idposition`, `status_idStatus`),
+  INDEX `fk_position_status1_idx` (`status_idStatus` ASC) VISIBLE,
+  CONSTRAINT `fk_position_status1`
+    FOREIGN KEY (`status_idStatus`)
+    REFERENCES `firework`.`status` (`idStatus`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (1,'แม่บ้าน',1);
-INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (2,'พ่อครัว',1);
-INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (3,'พนักงานเสิร์ฟ',1);
-INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (4,'พนักงานส่งอาหาร (ไรเดอร์)',1);
-INSERT INTO `position` (`idposition`,`positionName`,`employer_idEmployer`) VALUES (5,'พ่อบ้าน',1);
+INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (1,'แม่บ้าน',1);
+INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (2,'พ่อครัว',1);
+INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (3,'พนักงานเสิร์ฟ',1);
+INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (4,'พนักงานส่งอาหาร (ไรเดอร์)',1);
+INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (5,'พ่อบ้าน',2);
 
 -- -----------------------------------------------------
 -- Table `firework`.`posting`
