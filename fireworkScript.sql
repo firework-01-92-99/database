@@ -9027,6 +9027,9 @@ INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (2
 INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (3,'พนักงานเสิร์ฟ',1);
 INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (4,'พนักงานส่งอาหาร (ไรเดอร์)',1);
 INSERT INTO `position` (`idposition`,`positionName`,`status_idStatus`) VALUES (5,'พ่อบ้าน',2);
+INSERT INTO `position` (`idposition`, `positionName`, `status_idStatus`) VALUES ('6', 'ช่างเชื่อม', '1');
+INSERT INTO `position` (`idposition`, `positionName`, `status_idStatus`) VALUES ('7', 'พนักงานประจำครัวกลาง', '1');
+INSERT INTO `position` (`idposition`, `positionName`, `status_idStatus`) VALUES ('8', 'พนักงานขายของตามงานประจำปี', '1');
 
 -- -----------------------------------------------------
 -- Table `firework`.`posting`
@@ -9044,7 +9047,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `overtimePayment` VARCHAR(45) NOT NULL CHECK (`overtimePayment` IN ('y', 'n')) COMMENT 'value = y, n',
   `startTime` VARCHAR(45) NOT NULL,
   `endTime` VARCHAR(45) NOT NULL,
-  `properties` VARCHAR(45) NULL,
+  `properties` VARCHAR(2000) NULL,
   `welfare` VARCHAR(2000) NOT NULL,
   `date` DATE NOT NULL,
   `employer_idEmployer` INT NOT NULL,
@@ -9090,7 +9093,9 @@ INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`mi
 INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (3,'A','<ul style="list-style-type:disc"> <li> จัดสถานที่และทำความสะอาดก่อนเปิดร้าน </li> <li> ต้อนรับลูกค้าด้วยรอยยิ้มอยู่เสมอ </li> <li> รับออเดอร์และเสิร์ฟอาหาร เครื่องดื่ม </li> <li> ดูแลเซอร์วิส ให้ความช่อยเหลือลูกค้า </li> <li> เก็บและทำความสะอาดร้านหลังปิดให้บริการ </li> </ul>',25,40,300,350,'n','9:00','18:00',NULL,'<ul style="list-style-type:disc"> <li> บุคลิกร่าเริงแจ่มใส</li> <li> กล้าแสดงออก</li> <li> ช่างสังเกตผู้คน</li> <li> มีความกระตื่อรือร้น</li> <li> พร้อมเรียนอยู่สิ่งใหม่ ๆ เพื่อพัฒนาตนเองอยู่เสมอ</li> </ul>', '2021-01-01', 1,1,2,2,3);
 INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (4,'A','<ul style="list-style-type:disc"> <li> ส่งอาหารตามออร์เดอร์ </li> <li> งานอื่นๆ ที่ได้รับมอบหมาย </li> </ul>',18,50,11000,13500,'n','7:00','22:00',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> <li> ค่าตอบแทนพิเศษ</li> <li> เงินโบนัสตามผลงาน</li> <li> ทำงานเป็นกะ</li> </ul>', '2021-01-01', 1,1,1,3,4);
 INSERT INTO `posting` (`idPosting`,`sex`,`workDescription`,`minAge`,`maxAge`,`minSalary`,`maxSalary`,`overtimePayment`,`startTime`,`endTime`,`properties`,`welfare`, `date`, `employer_idEmployer`,`status_idStatus`,`WorkerType_idWorkerType`,`hiring_type_idHiringtype`,`position_idposition`) VALUES (5,'M','<ul style="list-style-type:disc"> <li> ทำความสะอาดภายในโรงานและออฟฟิศสำนักงาน </li> <li> งานอื่นๆ ที่ได้รับมอบหมาย </li> </ul>',25,36,9500,10500,'n','7:30','17:30',NULL,'<ul style="list-style-type:disc"> <li> ประกันสังคม</li> </ul>', '2021-01-01', 1,2,3,3,5);
-
+INSERT INTO `posting` (`idPosting`, `sex`, `workDescription`, `minAge`, `maxAge`, `minSalary`, `maxSalary`, `overtimePayment`, `startTime`, `endTime`, `properties`, `welfare`, `date`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`, `position_idposition`) VALUES ('6', 'M', '<ul style=\"list-style-type:disc\"> <li> งานเชื่อมเหล็กโครงหลังคา Platform, Partition, Siding, Shelter </li> <li> งานเชื่อมทุกชนิด งานเชื่อมและประกอบ </li> </ul>', '18', '40', '500', '600', 'n', '8:00', '17:00', '<ul style="list-style-type:disc"> <li> มีประสบการณ์ด้านงานเชื่อม และเคยทำการในไซต์ก่อสร้าง จะพิจารณาเป็นพิเศษ </li> <li> มีความรับผิดชอบสูง ขยัน ซื่อสัตย์ อดทน สามารถขึ้นที่สูงได้ </li> </ul>', 'ไม่มี', '2021-01-01', '2', '1', '3', '2', '6');
+INSERT INTO `posting` (`idPosting`, `sex`, `workDescription`, `minAge`, `maxAge`, `minSalary`, `maxSalary`, `overtimePayment`, `startTime`, `endTime`, `properties`, `welfare`, `date`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`, `position_idposition`) VALUES ('7', 'A', '<ul style=\"list-style-type:disc\"> <li> เตรียมผัก/น้ำสลัดให้เพียงพอส่งสาขา </li> </ul>', '18', '40', '15000', '16000', 'y', '8:00', '17:00', '<ul style=\"list-style-type:disc\"> <li> ไม่จำกัดวุฒิการศึกษา </li> <li> มีประสบการณ์ฝ่ายผลิตจะพิจารณาเป็นพิเศษ </li> </ul>', '<ul style=\"list-style-type:disc\"> <li> ค่าอาหาร 800 บาท </li> <li> ค่าเดินทาง 500 บาท </li> <li> เบี้ยขยัน 500 บาท </li> <li> โอที </li> <li> โบนัสประจำปี </li> <li> ประกันสังคม / เครื่องเเบบพนักงาน </li> </ul>', '2021-01-01', '3', '1', '3', '3', '7');
+INSERT INTO `posting` (`idPosting`, `sex`, `workDescription`, `minAge`, `maxAge`, `minSalary`, `maxSalary`, `overtimePayment`, `startTime`, `endTime`, `properties`, `welfare`, `date`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`, `position_idposition`) VALUES ('8', 'M', '<ul style=\"list-style-type:disc\"> <li> ช่วยเรียงสินค้าดูลูกค้ามาซื้อของ </li> </ul>', '20', '38', '500', '550', 'n', '7:30', '17:30', '<ul style=\"list-style-type:disc\"> <li> ชื่อสัตย์ อดทน </li> </ul>', '<ul style=\"list-style-type:disc\"> <li> มีที่พักให้ </li> </ul>', '2021-01-01', '4', '1', '3', '2', '8');
 
 -- -----------------------------------------------------
 -- Table `firework`.`day`
@@ -9315,6 +9320,33 @@ INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (13,4,3);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (14,5,3);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (15,6,3);
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('16', '2', '4');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('16', '2', '4');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('17', '3', '4');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('18', '4', '4');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('19', '5', '4');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('20', '6', '4');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('21', '2', '5');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('22', '3', '5');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('23', '4', '5');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('24', '5', '5');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('25', '6', '5');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('26', '2', '6');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('27', '3', '6');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('28', '4', '6');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('29', '5', '6');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('30', '6', '6');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('31', '7', '6');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('32', '2', '7');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('33', '3', '7');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('34', '4', '7');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('35', '5', '7');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('36', '6', '7');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('37', '2', '8');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('38', '3', '8');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('39', '4', '8');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('40', '5', '8');
+INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('41', '6', '8');
 
 -- -----------------------------------------------------
 -- Table `firework`.`otp`
