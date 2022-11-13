@@ -9321,7 +9321,6 @@ INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (14,5,3);
 INSERT INTO `posting_has_day` (`idPostingHasDay`,`day_idDay`,`posting_idPosting`) VALUES (15,6,3);
 INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('16', '2', '4');
-INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('16', '2', '4');
 INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('17', '3', '4');
 INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('18', '4', '4');
 INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPosting`) VALUES ('19', '5', '4');
@@ -9351,6 +9350,8 @@ INSERT INTO `posting_has_day` (`idPostingHasDay`, `day_idDay`, `posting_idPostin
 -- -----------------------------------------------------
 -- Table `firework`.`otp`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`otp` ;
+
 CREATE TABLE IF NOT EXISTS `firework`.`otp` (
   `idOtp` INT NOT NULL AUTO_INCREMENT,
   `otpNo` INT NOT NULL,
