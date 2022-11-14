@@ -272,6 +272,8 @@ INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve
 -- -----------------------------------------------------
 -- Table `firework`.`worker_type`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`worker_type` ;
+
 CREATE TABLE IF NOT EXISTS `firework`.`worker_type` (
   `idWorkerType` INT NOT NULL AUTO_INCREMENT,
   `typeName` VARCHAR(7) NOT NULL CHECK (`typeName` IN ('Migrant', 'Thai', 'All')) COMMENT 'Migrant/Thai',
