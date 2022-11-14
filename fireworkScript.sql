@@ -9122,6 +9122,53 @@ INSERT INTO `posting` (`idPosting`, `sex`, `workDescription`, `minAge`, `maxAge`
 INSERT INTO `posting` (`idPosting`, `sex`, `workDescription`, `minAge`, `maxAge`, `minSalary`, `maxSalary`, `overtimePayment`, `startTime`, `endTime`, `properties`, `welfare`, `date`, `employer_idEmployer`, `status_idStatus`, `WorkerType_idWorkerType`, `hiring_type_idHiringtype`, `position_idposition`) VALUES ('26', 'M', '<ul style=\"list-style-type:disc\"> <li> ช่วยยกของ หน้าร้านขายส่งน้ำแข็ง </li>  </ul>', '18', '28', '300', '350', 'n', '15:00', '00:00', '<ul style=\"list-style-type:disc\"> <li> มีความอดทน </li> <li> ทำงานดึกได้ </li> </ul>', 'ไม่มี', '2021-09-02', '1', '1', '1', '2', '14');
 
 -- -----------------------------------------------------
+-- Table `firework`.`posting_open_close`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `firework`.`posting_open_close` ;
+
+CREATE TABLE IF NOT EXISTS `firework`.`posting_open_close` (
+  `idPostingOpenClose` INT NOT NULL AUTO_INCREMENT,
+  `activeDate` DATE NULL,
+  `inactiveDate` DATE NULL,
+  `round` INT NULL,
+  `posting_idPosting` INT NOT NULL,
+  PRIMARY KEY (`idPostingOpenClose`, `posting_idPosting`),
+  INDEX `fk_posting_open_close_posting1_idx` (`posting_idPosting` ASC) VISIBLE,
+  CONSTRAINT `fk_posting_open_close_posting1`
+    FOREIGN KEY (`posting_idPosting`)
+    REFERENCES `firework`.`posting` (`idPosting`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('1', '2021-01-01', '1', '1');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('2', '2021-01-01', '1', '2');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('3', '2021-01-01', '1', '3');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('4', '2021-01-01', '1', '4');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `inactiveDate`, `round`, `posting_idPosting`) VALUES ('5', '2021-01-01', '2021-02-01', '1', '5');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('6', '2021-01-01', '1', '6');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('7', '2021-01-01', '1', '7');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('8', '2021-01-01', '1', '8');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('9', '2021-01-01', '1', '9');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('10', '2021-01-01', '1', '10');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('11', '2021-02-01', '1', '11');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('12', '2021-03-01', '1', '12');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('13', '2021-03-05', '1', '13');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('14', '2021-04-05', '1', '14');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('15', '2021-05-02', '1', '15');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('16', '2021-03-12', '1', '16');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('17', '2021-02-14', '1', '17');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('18', '2021-06-01', '1', '18');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('19', '2021-07-05', '1', '19');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('20', '2021-03-12', '1', '20');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('21', '2021-01-10', '1', '21');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('22', '2021-02-15', '1', '22');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('23', '2021-01-20', '1', '23');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('24', '2021-04-07', '1', '24');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('25', '2021-06-05', '1', '25');
+INSERT INTO `posting_open_close` (`idPostingOpenClose`, `activeDate`, `round`, `posting_idPosting`) VALUES ('26', '2021-09-02', '1', '26');
+
+-- -----------------------------------------------------
 -- Table `firework`.`day`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `firework`.`day` ;
