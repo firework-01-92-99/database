@@ -9270,6 +9270,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
   `idApplication` INT NOT NULL AUTO_INCREMENT,
   `idStatusAdmin` INT NULL,
   `date` DATE NOT NULL,
+  `round` INT NULL,
   `worker_idWorker` INT NOT NULL,
   `posting_idPosting` INT NOT NULL,
   `admin_idAdmin` INT NULL,
@@ -9315,9 +9316,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, '2022-01-01', 1, 1, 1, 1, 11, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, '2022-01-01', 1, 4, 1, 2, 12, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, '2022-01-01', 2, 5, 1, 3, 13, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, '2022-01-01', 1, 1, 1, 1, 1, 11, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, '2022-01-01', 1, 1, 4, 1, 2, 12, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, '2022-01-01', 1, 2, 5, 1, 3, 13, NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
