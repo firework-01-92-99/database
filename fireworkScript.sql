@@ -9057,7 +9057,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`posting` (
   `endTime` VARCHAR(45) NOT NULL,
   `properties` VARCHAR(2000) NULL,
   `welfare` VARCHAR(2000) NOT NULL,
-  `date` DATE NOT NULL,
+  `date` TIMESTAMP NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `status_idStatus` INT NOT NULL,
   `WorkerType_idWorkerType` INT NOT NULL,
@@ -9130,8 +9130,8 @@ DROP TABLE IF EXISTS `firework`.`posting_open_close` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`posting_open_close` (
   `idPostingOpenClose` INT NOT NULL AUTO_INCREMENT,
-  `activeDate` DATE NULL,
-  `inactiveDate` DATE NULL,
+  `activeDate` TIMESTAMP NULL,
+  `inactiveDate` TIMESTAMP NULL,
   `round` INT NULL,
   `posting_idPosting` INT NOT NULL,
   PRIMARY KEY (`idPostingOpenClose`, `posting_idPosting`),
@@ -9269,7 +9269,7 @@ DROP TABLE IF EXISTS `firework`.`application` ;
 CREATE TABLE IF NOT EXISTS `firework`.`application` (
   `idApplication` INT NOT NULL AUTO_INCREMENT,
   `idStatusAdmin` INT NULL,
-  `date` DATE NOT NULL,
+  `date` TIMESTAMP NOT NULL,
   `round` INT NULL,
   `worker_idWorker` INT NOT NULL,
   `posting_idPosting` INT NOT NULL,
@@ -9329,7 +9329,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`ratings` (
   `idRating` INT NOT NULL AUTO_INCREMENT,
   `rate` INT NULL COMMENT 'คะแนนที่ให้',
   `comment` LONGTEXT NULL,
-  `timestamp` DATE NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL,
   `for_who` VARCHAR(45) NOT NULL,
   `employer_idEmployer` INT NOT NULL,
   `worker_idWorker` INT NOT NULL,
