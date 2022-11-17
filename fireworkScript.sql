@@ -9315,6 +9315,8 @@ ENGINE = InnoDB;
 INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (1, NULL, NULL, NULL);
 INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (2, NULL, NULL, NULL);
 INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (3, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (4, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (5, NULL, NULL, NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`application`
