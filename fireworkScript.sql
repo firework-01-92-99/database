@@ -245,6 +245,22 @@ INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES (
 INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('33', '1', '4');
 INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('34', '1', '4');
 INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('35', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('36', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('37', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('38', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('39', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('40', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('41', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('42', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('43', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('44', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('45', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('46', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('47', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('48', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('49', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('50', '1', '4');
+INSERT INTO `approve` (`idApprove`, `admin_idAdmin`, `status_idStatus`) VALUES ('51', '1', '4');
 
 -- -----------------------------------------------------
 -- Table `firework`.`account`
@@ -307,6 +323,22 @@ INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve
 INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('33', 'makin@gmail.com', '$2a$12$HADcJe4Dx0WCQFEGCJYh4.QXAt1gvyK9eJgESmY1ZYHqfAjpQoTY6', '3', '33');
 INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('34', 'kamsoy@gmail.com', '$2a$12$sTqG5RIKBtRXRdXgp3XQkO1vslr5mxj8JFL88hIATafo/.MhPDKf2', '3', '34');
 INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('35', 'penny@gmail.com', '$2a$12$3zHYRQ2Mft4ARztHHdMMPOntEuQSuVql5T49oBJxrPfll4WBjKfAq', '3', '35');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('36', 'ashin@gmail.com', '$2a$12$V0.UT3a7B1x0pj8k6U2DI.zX1R1Cw6soMGsSDtBv01Zdq7L0Wdwuu', '3', '36');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('37', 'tubtim@gmail.com', '$2a$12$6lOHHByHf9D2mgDIkC15gO5El7DbZDxebAsBfmzfPy6zU4O.L113.', '3', '37');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('38', 'kreeta@gmail.com', '$2a$12$60P7bRCl4eyjQGmVXLfon.AvRey6oqnoz7OFKEua6.E.kbrk//wuS', '3', '38');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('39', 'somdee@gmail.com', '$2a$12$Rg4mDEowuuvNFxjZ/kVGNek.n6C3yfNN6STkS/3sC6glX1LUxXjrm', '3', '39');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('40', 'jood@gmail.com', '$2a$12$Rrq0eCbjToD7kXB6aVtO/e/Tn/JDcW922Nv60hadZ1ym/Pmk/erjW', '3', '40');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('41', 'benja@gmail.com', '$2a$12$6tifTjKD9kWpVcKBVoOvfO8ZLTVmd7Mx9z0iNJumuKN7o8Yxl.iGq', '3', '41');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('42', 'chawis@gmail.com', '$2a$12$Y8LBqGF0pzc3Z7TlVuel7OkqCdIR9Sl7OqLJzp17fIq/L4/Y3xllu', '3', '42');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('43', 'maung@gmail.com', '$2a$12$uaYrBQZiKXPUJozVBG7rVufZXEgOPeQ2PEMBaNmve9ceUPgny7rhK', '3', '43');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('44', 'panee@gmail.com', '$2a$12$PANoXsXrDAh7tnKDo8IsneRjR8KS3dv4qfmqj0c6qjLQqjvGLNFCq', '3', '44');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('45', 'theep@gmail.com', '$2a$12$PANoXsXrDAh7tnKDo8IsneRjR8KS3dv4qfmqj0c6qjLQqjvGLNFCq', '3', '45');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('46', 'bhure@gmail.com', '$2a$12$bVFHgxrcbKGfrb4E0ux6/eVDRdAf2ub5vxkFXwm3GqEHwK8GMpSVq', '3', '46');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('47', 'thakin@gmail.com', '$2a$12$R9vVx.5eR9jDrlMqDUpxgu9ZTRB2AB2.pbOdOvCSUQsskqpHMnJPu', '3', '47');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('48', 'boonpong@gmail.com', '$2a$12$jQ6PzEfIl6OgkgDUu9n0he6i4SDrL1yMqE4WmOOKW7SG9W3HIIR8G', '3', '48');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('49', 'banya@gmail.com', '$2a$12$OqIFxw01zMJXVSRJvLNEweCHhxS58q7te/FMvXLFdqhmu3O/cEqD2', '3', '49');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('50', 'supun@gmail.com', '$2a$12$NwdZMHPVbH6n2l2fz9f86Oi9Nx3cf/TPEq8ge0IoNCimTUzawHKq2', '3', '50');
+INSERT INTO `account` (`idAccount`, `email`, `password`, `role_idRole`, `approve_idApprove`) VALUES ('51', 'arlunkaew@gmail.com', '$2a$12$PSexZCQgUwjrGFq2J8gU/upHW7arhglqCopXP/1fGhZiK32c8Rqm6', '3', '51');
 
 -- -----------------------------------------------------
 -- Table `firework`.`worker_type`
@@ -399,6 +431,22 @@ INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `f
 INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `rate`,`account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('18', 'A11117', 'image19.jpg', 'F', 'มะขิ่น', '-', '-', '0819999996', NULL,'33', '1', '3');
 INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `rate`,`account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('19', 'A11118', 'image20.jpg', 'F', 'คำสร้อย', '-', '-', '0819999997', NULL,'34', '1', '2');
 INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `rate`,`account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('20', 'A11119', 'image21.jpg', 'F', 'เพ็ญ', '-', 'ว่อง', '0819999998', NULL,'35', '1', '4');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('21', 'A21111', 'image22.jpg', 'F', 'อะชีน', '-', '-', '0823999991', NULL,'36', '1', '3');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('22', 'A21112', 'image23.jpg', 'F', 'ทับทิม', '-', '-', '0823999992', NULL,'37', '1', '2');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('23', '1100211112220', 'image24.jpg', 'M', 'กรีฑา', '-', 'สิงห์ขาว', '0823999993', NULL,'38', '2', '1');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('24', 'A21113', 'image25.jpg', 'M', 'สมดี', '-', 'คนดี', '0823999994', NULL,'39', '1', '2');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('25', 'A21114', 'image26.jpg', 'M', 'จู๊ด', '-', 'โกร์', '0823999995', NULL,'40', '1', '4');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('26', 'A21115', 'image27.jpg', 'F', 'เบญจมาศ', '-', 'สันติวงษ์', '0823999996', NULL,'41', '2', '1');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('27', '1100211112221', 'image28.jpg', 'M', 'ชวิศ', '-', 'เกษม', '0823999997', NULL,'42', '2', '	1');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('28', 'A21116', 'image29.jpg', 'M', 'หม่อง', '-', '-', '0823999998', NULL,'43', '1', '3');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('29', 'A21117', 'image30.jpg', 'F', 'ปานี', '-', 'ปาตัง', '0823999999', NULL,'44', '1', '2');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('30', 'A21118', 'image31.jpg', 'F', 'ตี๊บ', '-', '-', '0823999990', NULL,'45', '1', '4');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('31', 'A21119', 'image32.jpg', 'M', 'บุเร', '-', 'ตรุย', '0823955990', NULL,'46', '1', '4');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('32', 'A21110', 'image33.jpg', 'M', 'ตะคีน', '-', '-', '0823955991', NULL,'47', '1', '3');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('33', 'A31110', 'image34.jpg', 'M', 'บุนปอง', '-', 'ตะนาว', '0823955992', NULL,'48', '1', '2');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('34', 'A31111', 'image35.jpg', 'F', 'บะญ่า', '-', '-', '0823955993', NULL,'49', '1', '3');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('35', 'A31112', 'image36.jpg', 'M', 'สุพัน', '-', 'เทียนไข', '0823955994', NULL,'50', '1', '2');
+INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('36', 'A31113', 'image37.jpg', 'F', 'อาลุนแก้ว', '-', 'บุปผา', '0823955995', NULL,'51', '1', '2');
 
 -- -----------------------------------------------------
 -- Table `firework`.`district`
