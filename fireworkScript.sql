@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating', 'workerRated', 'empRated', 'Wait_AdminSendWorker', 'workerSent')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating', 'workerRated', 'empRated', 'Wait_AdminSendWorker', 'workerSent', 'doneBreakShort')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
