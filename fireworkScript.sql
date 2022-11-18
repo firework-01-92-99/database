@@ -184,6 +184,7 @@ INSERT INTO `status` (`idStatus`,`statusName`) VALUES (25,'workerRated');
 INSERT INTO `status` (`idStatus`,`statusName`) VALUES (26,'empRated');
 INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('27', 'Wait_AdminSendWorker');
 INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('28', 'workerSent');
+INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('29', 'doneBreakShort');
 
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
