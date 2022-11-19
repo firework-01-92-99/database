@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `firework`.`status` ;
 
 CREATE TABLE IF NOT EXISTS `firework`.`status` (
   `idStatus` INT NOT NULL AUTO_INCREMENT,
-  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating', 'workerRated', 'empRated', 'Wait_AdminSendWorker', 'workerSent', 'doneBreakShort', 'workerRated_BreakShort', 'empRated_BreakShort')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
+  `statusName` VARCHAR(45) NOT NULL CHECK (`statusName` IN ('Active', 'Inactive', 'Waiting', 'Accept', 'Reject', 'Waiting_Approve', 'Waiting_Edit', 'Waiting_Delete', 'Deleted', 'Waiting_OTP', 'Wating_EmployerOnWeb', 'Accept_EmployerOnWeb', 'Reject_EmployerOnWeb', 'Wating_EmployerSummary', 'Accept_WorkerOnSite', 'Reject_WorkerOnSite', 'Wating_AdminSent', 'Admin_Confirm', 'Admin_Cancel', 'Done', 'Wating_WorkerFinishJob', 'FinishJob', 'BreakShort', 'Waiting_Rating', 'workerRated', 'empRated', 'Wait_AdminSendWorker', 'workerSent', 'doneBreakShort', 'workerRated_BreakShort', 'empRated_BreakShort', 'adminRejectSentWorker')) COMMENT 'Posting Table: Active, Inactive\nAccount, Application, Approve: Accept, Reject, Waiting',
   PRIMARY KEY (`idStatus`))
 ENGINE = InnoDB;
 
@@ -187,6 +187,7 @@ INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('28', 'workerSent');
 INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('29', 'doneBreakShort');
 INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('30', 'workerRated_BreakShort');
 INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('31', 'empRated_BreakShort');
+INSERT INTO `status` (`idStatus`, `statusName`) VALUES ('32', 'adminRejectSentWorker');
 
 -- -----------------------------------------------------
 -- Table `firework`.`approve`
@@ -9362,14 +9363,15 @@ CREATE TABLE IF NOT EXISTS `firework`.`application_has_comment` (
   `descriptionRejectOnWeb` VARCHAR(2000) NULL,
   `descriptionRejectOnSite` VARCHAR(2000) NULL,
   `descriptionBreakShort` VARCHAR(2000) NULL,
+  `descriptionRejectSentWorker` VARCHAR(2000) NULL,
   PRIMARY KEY (`idHasComment`))
 ENGINE = InnoDB;
 
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (1, NULL, NULL, NULL);
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (2, NULL, NULL, NULL);
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (3, NULL, NULL, NULL);
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (4, NULL, NULL, NULL);
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`) VALUES (5, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (1, NULL, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (2, NULL, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (3, NULL, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (4, NULL, NULL, NULL, NULL);
+INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (5, NULL, NULL, NULL, NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`application`
