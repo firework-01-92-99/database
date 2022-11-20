@@ -9371,7 +9371,6 @@ INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`,
 INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (2, NULL, NULL, NULL, NULL);
 INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (3, NULL, NULL, NULL, NULL);
 INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (4, NULL, NULL, NULL, NULL);
-INSERT INTO `application_has_comment` (`idHasComment`, `descriptionRejectOnWeb`, `descriptionRejectOnSite`, `descriptionBreakShort`, `descriptionRejectSentWorker`) VALUES (5, NULL, NULL, NULL, NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`application`
@@ -9429,10 +9428,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
 ENGINE = InnoDB;
 
 INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, '2022-01-01 12:10:00', 1, 1, 1, 1, 1, 11, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, '2022-01-01 10:07:35', 1, 1, 4, 1, 2, 12, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (3, 0, '2022-01-01 09:47:25', 1, 2, 5, 1, 3, 13, NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES ('4', '0', '2022-01-01 13:26:58', '1', '17', '1', '1', '4', '11', NULL);
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES ('5', '0', '2022-01-03 14:15:16', '1', '18', '1', '1', '5', '11', NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, '2022-01-01 09:47:25', 1, 2, 5, 1, 2, 13, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES ('3', '0', '2022-01-01 13:26:58', '1', '17', '1', '1', '3', '11', NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES ('4', '0', '2022-01-03 14:15:16', '1', '18', '1', '1', '4', '11', NULL);
 
 -- -----------------------------------------------------
 -- Table `firework`.`ratings`
