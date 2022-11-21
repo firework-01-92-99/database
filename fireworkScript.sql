@@ -414,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`worker` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`, `rate`, `account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (1,'MC576508','image2.jpg','F','ซิ่น','เมียท','อู','0912345678', NULL,3,1,3);
+INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`, `rate`, `account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (1,'MC576508','image2.jpg','F','ซิ่น','เมียท','อู','0912345678', 5.00,3,1,3);
 INSERT INTO `worker` (`idWorker`,`IdentificationNumber`,`verifyPic`,`sex`,`firstName`,`middleName`,`lastName`,`phone`, `rate`,`account_idAccount`,`WorkerType_idWorkerType`, `nationality_idnationality`) VALUES (2,'1100211111111','image3.jpg','M','รักชาติ','-','ศาสนา','0999999999', NULL, 4,2,1);
 INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `rate`,`account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('3', '1100211111112', 'image4.jpg', 'M', 'สมพร', '-', 'มุ่งมั่น', '0999999998', NULL,'18', '2', '1');
 INSERT INTO `worker` (`idWorker`, `IdentificationNumber`, `verifyPic`, `sex`, `firstName`, `middleName`, `lastName`, `phone`, `rate`,`account_idAccount`, `WorkerType_idWorkerType`, `nationality_idnationality`) VALUES ('4', '1100211111113', 'image5.jpg', 'M', 'สมชาย', '-', 'มานะ', '0999999997', NULL,'19', '2', '1');
@@ -8990,7 +8990,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`employer` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`, `rate`, `account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'Lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lambchop@gmail.com','light12345','logo-lightning.jpg', NULL,'2',24,10,1001,100101,1);
+INSERT INTO `employer` (`idEmployer`,`establishmentName`,`entrepreneurfName`,`entrepreneurlName`,`address`,`tel`,`phone`,`email`,`lineId`,`profile`, `rate`, `account_idAccount`,`businessType_idBusinessType`,`province_idProvince`,`district_idDistrict`,`sub_district_idSubdistrict`, `nationality_idnationality`) VALUES (1,'Lightning co., ltd.','Flash','Fastest','ซอย 1 55','021212121','0912345678','lambchop@gmail.com','light12345','logo-lightning.jpg', 5.00,'2',24,10,1001,100101,1);
 INSERT INTO `employer` (`idEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `email`, `lineId`, `profile`, `account_idAccount`, `businessType_idBusinessType`, `province_idProvince`, `district_idDistrict`, `sub_district_idSubdistrict`, `nationality_idnationality`) VALUES ('2', 'Candle co., ltd.', 'test1', 'testest1', 'ซอยทดสอบ 1', '022222221', '0912345671', 'candle@gmail.com', 'test1', 'logo-1.png', '5', '2', '11', '1101', '110101', '1');
 INSERT INTO `employer` (`idEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `email`, `lineId`, `profile`, `account_idAccount`, `businessType_idBusinessType`, `province_idProvince`, `district_idDistrict`, `sub_district_idSubdistrict`, `nationality_idnationality`) VALUES ('3', 'Mountain co., ltd.', 'test2', 'testest2', 'ซอยทดสอบ 2', '022222222', '0912345672', 'mountain@gmail.com', 'test2', 'logo-2.png', '6', '3', '12', '1201', '120101', '1');
 INSERT INTO `employer` (`idEmployer`, `establishmentName`, `entrepreneurfName`, `entrepreneurlName`, `address`, `tel`, `phone`, `email`, `lineId`, `profile`, `account_idAccount`, `businessType_idBusinessType`, `province_idProvince`, `district_idDistrict`, `sub_district_idSubdistrict`, `nationality_idnationality`) VALUES ('4', 'Lotus co., ltd.', 'test3', 'testest3', 'ซอยทดสอบ 3', '022222223', '0912345673', 'lotus@gmail.com', 'test3', 'logo-3.png', '7', '4', '13', '1301', '130101', '1');
@@ -9427,7 +9427,7 @@ CREATE TABLE IF NOT EXISTS `firework`.`application` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 0, '2022-01-01 12:10:00', 1, 1, 1, 1, 1, 11, NULL);
+INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (1, 28, '2022-01-01 12:10:00', 1, 1, 1, 1, 1, 20, NULL);
 INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES (2, 0, '2022-01-01 09:47:25', 1, 2, 5, 1, 2, 13, NULL);
 INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES ('3', '0', '2022-01-01 13:26:58', '1', '17', '1', '1', '3', '11', NULL);
 INSERT INTO `application` (`idApplication`, `idStatusAdmin`, `date`, `round`, `worker_idWorker`, `posting_idPosting`, `admin_idAdmin`, `application_has_comment_idHasComment`, `status_idStatus`, `act_to_registrar_idaction`) VALUES ('4', '0', '2022-01-03 14:15:16', '1', '18', '1', '1', '4', '11', NULL);
@@ -9466,6 +9466,9 @@ CREATE TABLE IF NOT EXISTS `firework`.`ratings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+INSERT INTO `ratings` (`idRating`,`rate`,`comment`,`timestamp`,`for_who`,`employer_idEmployer`,`worker_idWorker`,`posting_idPosting`) VALUES (1,5,'ขยัน อดทน ทำงานเก่ง','2022-11-21 17:38:27','ROLE_WORKER',1,1,1);
+INSERT INTO `ratings` (`idRating`,`rate`,`comment`,`timestamp`,`for_who`,`employer_idEmployer`,`worker_idWorker`,`posting_idPosting`) VALUES (2,5,'สวัสดิการดี นายจ้างใจดี','2022-11-21 17:43:07','ROLE_EMP',1,1,1);
 
 -- -----------------------------------------------------
 -- Table `firework`.`posting_has_day`
